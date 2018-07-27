@@ -23,27 +23,113 @@
       </nav>
       <main id="main-doc">
         <section class="main-section" id="Hello_World!">
-          <header>Hello World!</header>
-          <article></article>
+          <header><h1>Hello World!</h1></header>
+          <article>
+            <p>The smallest React example looks like this:</p>
+            <code id="dupacode">ReactDOM.render(Hello, world!, document.getElementById('root'));</code>
+            <p>It displays a heading saying “Hello, world!” on the page.</p>
+            <p>Click the link above to open an online editor. Feel free to make some changes, and see how they affect the output. 
+            Most pages in this guide will have editable examples like this one.</p>
+            <h1>How to Read This Guide</h1>
+            <p><b>Tip</b><br>This guide is designed for people who prefer <b>learning concepts step by step.</b> If you prefer to learn by doing, check out our practical tutorial. You might find this guide and the tutorial complementary to each other.</p>
+            <p>This is the first chapter in a step-by-step guide about main React concepts. You can find a list of all its chapters in the navigation sidebar. If you’re reading this from a mobile device, you can access the navigation by pressing the button in the bottom right corner of your screen.</p>
+            <p>Every chapter in this guide builds on the knowledge introduced in earlier chapters. <b>You can learn most of React by reading the “Main Concepts” guide chapters in the order they appear in the sidebar.</b> For example, “Introducing JSX” is the next chapter after this one.</p>
+            <h1>Knowledge Level Assumptions</h1>
+            <p>React is a JavaScript library, and so we’ll assume you have a basic understanding of the JavaScript language. If you don’t feel very confident, we recommend going through a <b>JavaScript tutorial</b> to check your knowledge level and enable you to follow along this guide without getting lost. It might take you between 30 minutes and an hour, but as a result you won’t have to feel like you’re learning both React and JavaScript at the same time.</p>
+            <p><b>Note</b><br>This guide occasionally uses some of the newer JavaScript syntax in the examples. If you haven’t worked with JavaScript in the last few years, these three points should get you most of the way.</p>
+          </article>
         </section>
         <section class="main-section" id="Introducing_JSX">
-          <header>Introducing JSX</header>
-          <article></article>
+          <header><h1>Introducing JSX</h1></header>
+          <article>
+            <p>Consider this variable declaration:</p>
+            <code>const element = Hello, world!;</code>
+            <p>This funny tag syntax is neither a string nor HTML.</p>
+            <p>It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.</p>
+            <p>JSX produces React “elements”. We will explore rendering them to the DOM in the next section. Below, you can find the basics of JSX necessary to get you started.</p>
+            <h1>Why JSX?</h1>
+            <p>React embraces the fact that rendering logic is inherently coupled with other UI logic: how events are handled, how the state changes over time, and how the data is prepared for display.</p>
+            <p>Instead of artificially separating technologies by putting markup and logic in separate files, React separates concerns with loosely coupled units called “components” that contain both. We will come back to components in a further section, but if you’re not yet comfortable putting markup in JS, this talk might convince you otherwise.</p>
+            <p>React doesn’t require using JSX, but most people find it helpful as a visual aid when working with UI inside the JavaScript code. It also allows React to show more useful error and warning messages.</p>
+            <p>With that out of the way, let’s get started!</p>
+            <h1>Embedding Expressions in JSX</h1>
+            <p>In the example below, we declare a variable called name and then use it inside JSX by wrapping it in curly braces:</p>
+            <code>const name = 'Josh Perez';
+              const element = Hello, {name};
+              ReactDOM.render(
+                element,
+                document.getElementById('root')
+              );</code>
+            <p>You can put any valid JavaScript expression inside the curly braces in JSX. For example, 2 + 2, user.firstName, or formatName(user) are all valid JavaScript expressions.</p>
+            <p>In the example below, we embed the result of calling a JavaScript function, formatName(user), into an element.</p>
+            <code>
+              function formatName(user) {
+                return user.firstName + ' ' + user.lastName;
+              }
+              const user = {
+                firstName: 'Harper',
+                lastName: 'Perez'
+              };
+              const element = (
+                  Hello, {formatName(user)}!
+              );
+              ReactDOM.render(
+                element,
+                document.getElementById('root')
+              );
+            </code>
+            <p>We split JSX over multiple lines for readability. While it isn’t required, when doing this, we also recommend wrapping it in parentheses to avoid the pitfalls of <a href="http://stackoverflow.com/q/2846283">automatic semicolon insertion.</a></p>
+            <h1>JSX is an Expression Too</h1>
+            <p>After compilation, JSX expressions become regular JavaScript function calls and evaluate to JavaScript objects.</p>
+            <p>This means that you can use JSX inside of if statements and for loops, assign it to variables, accept it as arguments, and return it from functions:</p>
+            <code>
+              function getGreeting(user) {
+                if (user) {
+                  return Hello, {formatName(user)}!;
+                }
+                return Hello, Stranger.;
+              }
+            </code>
+            <h1>Specifying Attributes with JSX</h1>
+            <p>You may use quotes to specify string literals as attributes:</p>
+            <code>
+              const element = <div tabIndex="0"></div>;
+            </code>
+            <p>You may also use curly braces to embed a JavaScript expression in an attribute:</p>
+            <code>const element = <img src={user.avatarUrl}></img>;</code>
+            <p>Don’t put quotes around curly braces when embedding a JavaScript expression in an attribute. You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.</p>
+            <p><b>Warning:</b><br><br>
+
+            Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.
+            
+            For example, class becomes <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/className">className</a> in JSX, and tabindex becomes <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex">tabIndex.</a></p>
+            <h1>Specifying Children with JSX</h1>
+            <p>If a tag is empty, you may close it immediately with />, like XML:</p>
+            <code>const element = <img src={user.avatarUrl} />;</code>
+            <p>JSX tags may contain children:</p>
+            <code>const element = (<br>
+              &emsp&ltdiv&gt <br>
+                  &emsp &emsp &lt h1 &gtHello!&lt/h1&gt <br>
+                  &lth2>Good to see you here.&lt/h2&gt <br>
+              &emsp&lt/div&gt <br>
+            );</code>
+          </article>
         </section>
         <section class="main-section" id="Rendering_Elements">
-          <header>Rendering Elements</header>
-          <article></article>
+          <header><h1>Rendering Elements</h1></header>
+          <article>
+
+          </article>
         </section>
         <section class="main-section" id="Components_and_Props">
-          <header>Components and Props</header>
+          <header><h1>Components and Props</h1></header>
           <article></article>
         </section>
         <section class="main-section" id="State_and_Lifecycle">
-          <header>State and Lifecycle</header>
+          <header><h1>State and Lifecycle</h1></header>
           <article></article>
         </section>
       </main>
     </div>
   </body>
-
 </html>
