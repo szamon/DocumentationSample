@@ -1,1 +1,66 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+html {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#header {
+  text-align: center;
+}
+
+#header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#navbar ul {
+  margin: 15px auto;
+  margin-bottom: 35px;
+  width: 65%;
+  overflow: hidden;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#navbar li {
+  list-style: circle;
+  margin: 5px 0 5px 0;
+  font-weight: 400;
+}
+
+section h1 {
+  margin: 20px 0;
+  text-align: center;
+  background: #e1e7f2;
+  border-left: 5px solid grey;
+}
+
+section p {
+  margin: 8px;
+  text-align: justify;
+}
+
+.codeBlock {
+  background: #4c5b75;
+  color: white;
+  padding: 8px;
+}
+
+article a {
+  display: inline-block;
+  margin: 15px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+article h3 {
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */
