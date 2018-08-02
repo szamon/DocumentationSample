@@ -15,11 +15,6 @@ a {
   text-align: center;
 }
 
-#header a {
-  text-decoration: none;
-  color: inherit;
-}
-
 #navbar ul {
   margin: 15px auto;
   margin-bottom: 35px;
@@ -42,6 +37,11 @@ section h1 {
   border-left: 5px solid grey;
 }
 
+section h3 {
+  padding-top: 10px;
+  border-top: 0.1px solid #bec1c6;
+}
+
 section p {
   margin: 8px;
   text-align: justify;
@@ -53,11 +53,26 @@ section p {
   padding: 8px;
 }
 
+.note {
+  padding: 3px;
+  background: rgba(255, 246, 221, 0.6);
+  border: 1px solid #fff6dd;
+}
+
 article a {
   display: inline-block;
   margin: 15px;
   font-size: 0.9em;
   font-weight: bold;
+  background: rgba(225, 231, 242, 0.8);
+}
+
+article p a {
+  display: auto;
+  margin: auto;
+  font-size: auto;
+  font-weight: auto;
+  background: rgba(225, 231, 242, 0.8);
 }
 
 article h3 {
