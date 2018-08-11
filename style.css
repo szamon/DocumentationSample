@@ -26,7 +26,7 @@ a {
 
 #navbar li {
   list-style: circle;
-  margin: 5px 0 5px 0;
+  margin: 5px 0;
   font-weight: 400;
 }
 
@@ -38,36 +38,21 @@ section h1 {
 }
 
 section h3 {
-  padding-top: 10px;
+  padding-top: 35px;
+  text-align: center;
   border-top: 0.1px solid #bec1c6;
 }
 
+section h4 {
+  text-align: center;
+}
+
 section p {
-  margin: 8px;
+  margin: 8px 10px;
   text-align: justify;
 }
 
-.codeBlock {
-  background: #4c5b75;
-  color: white;
-  padding: 8px;
-}
-
-.note {
-  padding: 3px;
-  background: rgba(255, 246, 221, 0.6);
-  border: 1px solid #fff6dd;
-}
-
-article a {
-  display: inline-block;
-  margin: 15px;
-  font-size: 0.9em;
-  font-weight: bold;
-  background: rgba(225, 231, 242, 0.8);
-}
-
-article p a {
+section a {
   display: auto;
   margin: auto;
   font-size: auto;
@@ -75,7 +60,60 @@ article p a {
   background: rgba(225, 231, 242, 0.8);
 }
 
-article h3 {
-  text-align: center;
+section article .codepenAnchor {
+  display: inline-block;
+  margin: 15px;
+  font-size: 0.9em;
+  font-weight: bold;
+  background: rgba(225, 231, 242, 0.8);
+}
+
+section article ol li {
+  margin: 5px 0;
+}
+
+.codeBlock {
+  margin: 10px 0;
+  padding: 8px 8px 8px 25px;
+  color: white;
+  background: #4c5b75;
+}
+
+.note {
+  padding: 3px;
+  background: rgba(255, 246, 221, 0.6);
+  border: 1px solid rgba(173, 65, 43, 0.12);
+}
+
+@media screen and (min-width: 700px) {
+  #navbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: calc(25% - 2px);
+    border-left: 2px solid rgba(0, 0, 0, 0.55);
+    height: 100%;
+  }
+  #navbar h1 {
+    padding-bottom: 30px;
+    border-bottom: 0.1px solid #dae1ed;
+  }
+  #navbar ul {
+    border: none;
+  }
+  #navbar li {
+    margin: 40px 0;
+    font-size: 1.1em;
+  }
+  #navbar li:hover {
+    font-weight: bold;
+  }
+  #main-doc {
+    float: left;
+    width: 75%;
+  }
+  #main-doc p {
+    margin: 8px 15px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

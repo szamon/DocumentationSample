@@ -5,6 +5,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" type="text/css" href="./normalize.css">
       <link rel="stylesheet" type="text/css" href="./style.css">
       <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
       <title>React Technical Documentation Sample</title>
@@ -12,7 +13,7 @@
     <div id="wrapper">
       <nav id="navbar">
         <header id="header">
-          <h1>React Technical Documentation Sample</h1>
+          <h1>React Technical Documentation Sample Menu</h1>
         </header>
           <ul>
             <li><a href="#Hello_World!">Hello World!</a></li>
@@ -26,12 +27,12 @@
         <section class="main-section" id="Hello_World!">
           <header><h1>Hello World!</h1></header>
           <article>
-            <p>The smallest React example looks like this:</p>
+            <p><em>The smallest React example looks like this:</em></p>
             <div class="codeBlock">
               <code>ReactDOM.render(Hello, world!, document.getElementById('root'));</code>
             </div>
             <p>It displays a heading saying “Hello, world!” on the page.</p>
-            <a href="https://reactjs.org/redirect-to-codepen/hello-world">Try it on CodePen</a>
+            <a class="codepenAnchor" target=_blank href="https://reactjs.org/redirect-to-codepen/hello-world">Try it on CodePen</a>
             <p>Click the link above to open an online editor. Feel free to make some changes, and see how they affect the output. 
             Most pages in this guide will have editable examples like this one.</p>
             <h3>How to Read This Guide</h3>
@@ -39,135 +40,219 @@
             <!-- <p>If you’re reading this from a mobile device, you can access the navigation by pressing the button in the bottom right corner of your screen.</p> -->
             <p>Every chapter in this guide builds on the knowledge introduced in earlier chapters. <b>You can learn most of React by reading the “Main Concepts” guide chapters in the order they appear in the topic list.</b> For example, <a href="#Introducing_JSX">“Introducing JSX”</a> is the next chapter after this one.</p>
             <h3>Knowledge Level Assumptions</h3>
-            <p>React is a JavaScript library, and so we’ll assume you have a basic understanding of the JavaScript language. If you don’t feel very confident, we recommend going through a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript">JavaScript tutorial</a> to check your knowledge level and enable you to follow along this guide without getting lost. It might take you between 30 minutes and an hour, but as a result you won’t have to feel like you’re learning both React and JavaScript at the same time.</p>
-            <p class="note"><b>Note</b><br>This guide occasionally uses some of the newer JavaScript syntax in the examples. If you haven’t worked with JavaScript in the last few years, <a href="https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c">these three points</a should get you most of the way.</p>
+            <p>React is a JavaScript library, and so we’ll assume you have a basic understanding of the JavaScript language. <b>If you don’t feel very confident, we recommend going through a <a target=_blank href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript">JavaScript tutorial</a></b> to check your knowledge level and enable you to follow along this guide without getting lost. It might take you between 30 minutes and an hour, but as a result you won’t have to feel like you’re learning both React and JavaScript at the same time.</p>
+            <p class="note"><b>Note</b><br>This guide occasionally uses some of the newer JavaScript syntax in the examples. If you haven’t worked with JavaScript in the last few years, <a target=_blank href="https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c">these three points</a should get you most of the way.</p>
+            <h3>Let’s Get Started!</h3>
+            <p>Keep scrolling down, and you’ll find the link to the <a href="#Introducing_JSX">next chapter</a> of this guide right before the website footer.</p>
           </article>
         </section>
         <section class="main-section" id="Introducing_JSX">
           <header><h1>Introducing JSX</h1></header>
           <article>
-            <p>Consider this variable declaration:</p>
-            <code>const element = Hello, world!;</code>
+            <p><em>Consider this variable declaration:</em></p>
+            <div class="codeBlock">
+              <code>const element = &lth1&gtHello, world!&lt/h1&gt ;</code>
+            </div>
             <p>This funny tag syntax is neither a string nor HTML.</p>
             <p>It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.</p>
-            <p>JSX produces React “elements”. We will explore rendering them to the DOM in the next section. Below, you can find the basics of JSX necessary to get you started.</p>
-            <h1>Why JSX?</h1>
+            <p>JSX produces React “elements”. We will explore rendering them to the DOM in the <a href="#Rendering_Elements">next section</a>. Below, you can find the basics of JSX necessary to get you started.</p>
+            <h3>Why JSX?</h3>
             <p>React embraces the fact that rendering logic is inherently coupled with other UI logic: how events are handled, how the state changes over time, and how the data is prepared for display.</p>
-            <p>Instead of artificially separating technologies by putting markup and logic in separate files, React separates concerns with loosely coupled units called “components” that contain both. We will come back to components in a further section, but if you’re not yet comfortable putting markup in JS, this talk might convince you otherwise.</p>
-            <p>React doesn’t require using JSX, but most people find it helpful as a visual aid when working with UI inside the JavaScript code. It also allows React to show more useful error and warning messages.</p>
+            <p>Instead of artificially separating <em>technologies</em> by putting markup and logic in separate files, React <a target=_blank href="https://en.wikipedia.org/wiki/Separation_of_concerns">separates <em>concerns</em></a> with loosely coupled units called “components” that contain both. We will come back to components in a <a href="#Components_and_Props">further section</a>, but if you’re not yet comfortable putting markup in JS, <a target=_blank href="https://www.youtube.com/watch?v=x7cQ3mrcKaY">this talk</a> might convince you otherwise.</p>
+            <p>React <a target=_blank href="https://reactjs.org/docs/react-without-jsx.html">doesn’t require</a> using JSX, but most people find it helpful as a visual aid when working with UI inside the JavaScript code. It also allows React to show more useful error and warning messages.</p>
             <p>With that out of the way, let’s get started!</p>
-            <h1>Embedding Expressions in JSX</h1>
+            <h3>Embedding Expressions in JSX</h3>
             <p>In the example below, we declare a variable called name and then use it inside JSX by wrapping it in curly braces:</p>
-            <code>const name = 'Josh Perez';
-              const element = Hello, {name};
-              ReactDOM.render(
-                element,
-                document.getElementById('root')
-              );</code>
-            <p>You can put any valid JavaScript expression inside the curly braces in JSX. For example, 2 + 2, user.firstName, or formatName(user) are all valid JavaScript expressions.</p>
-            <p>In the example below, we embed the result of calling a JavaScript function, formatName(user), into an element.</p>
-            <code>
-              function formatName(user) {
-                return user.firstName + ' ' + user.lastName;
-              }
-              const user = {
-                firstName: 'Harper',
-                lastName: 'Perez'
-              };
-              const element = (
-                  Hello, {formatName(user)}!
-              );
-              ReactDOM.render(
-                element,
-                document.getElementById('root')
-              );
-            </code>
-            <p>We split JSX over multiple lines for readability. While it isn’t required, when doing this, we also recommend wrapping it in parentheses to avoid the pitfalls of <a href="http://stackoverflow.com/q/2846283">automatic semicolon insertion.</a></p>
-            <h1>JSX is an Expression Too</h1>
+            <div class="codeBlock">
+              <code>
+                const name = 'Josh Perez'; <br>
+                const element = &lth1&gtHello, {name}&lt/h1&gt ; <br>
+                ReactDOM.render( <br>
+              &nbsp    element, <br>
+              &nbsp    document.getElementById('root') <br>
+                );
+              </code>
+            </div>
+            <p>You can put any valid <a target=_blank href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions">JavaScript expression</a> inside the curly braces in JSX. For example, <code>2 + 2</code>, <code>user.firstName</code>, or <code>formatName(user)</code> are all valid JavaScript expressions.</p>
+            <p>In the example below, we embed the result of calling a JavaScript function, <code>formatName(user)</code>, into an <code>&lth1&gt</code> element.</p>
+            <div class="codeBlock">
+              <code>
+                function formatName(user) { <br>
+                &nbsp    return user.firstName + ' ' + <br> &nbsp user.lastName; <br>
+                }; <br>
+                const user = { <br>
+                &nbsp    firstName: 'Harper', <br>
+                &nbsp  lastName: 'Perez' <br>
+                }; <br>
+                const element = ( <br>
+                &nbsp    Hello, {formatName(user)}! <br>
+                ); <br>
+                ReactDOM.render( <br>
+                &nbsp  element, <br>
+                &nbsp  document.getElementById('root') <br>
+                );
+              </code>
+            </div>
+            <a class="codepenAnchor" target=_blank href="https://reactjs.org/redirect-to-codepen/introducing-jsx">Try it on Codepen</a>
+            <p>We split JSX over multiple lines for readability. While it isn’t required, when doing this, we also recommend wrapping it in parentheses to avoid the pitfalls of <a target=_blank href="http://stackoverflow.com/q/2846283">automatic semicolon insertion.</a></p>
+            <h3>JSX is an Expression Too</h3>
             <p>After compilation, JSX expressions become regular JavaScript function calls and evaluate to JavaScript objects.</p>
             <p>This means that you can use JSX inside of if statements and for loops, assign it to variables, accept it as arguments, and return it from functions:</p>
-            <code>
-              function getGreeting(user) {
-                if (user) {
-                  return Hello, {formatName(user)}!;
+            <div class="codeBlock">
+              <code>
+                function getGreeting(user) { <br>
+              &nbsp&nbsp    if (user) { <br>
+              &nbsp&nbsp&nbsp      return &lth1&gtHello,<br>
+              &nbsp&nbsp&nbsp      {formatName(user)}!&lt/h1&gt&#59 <br>
+              &nbsp&nbsp    } <br>
+              &nbsp    return &lth1&gtHello, Stranger.&lt/h1&gt&#59<br>
                 }
-                return Hello, Stranger.;
-              }
-            </code>
-            <h1>Specifying Attributes with JSX</h1>
+              </code>
+            </div>
+            <h3>Specifying Attributes with JSX</h3>
             <p>You may use quotes to specify string literals as attributes:</p>
-            <code>
-              const element = <div tabIndex="0"></div>;
-            </code>
+            <div class="codeBlock">
+              <code>
+                const element = &ltdiv tabIndex="0"&gt&lt/div&gt&#59
+              </code>
+            </div>
             <p>You may also use curly braces to embed a JavaScript expression in an attribute:</p>
-            <code>const element = <img src={user.avatarUrl}></img>;</code>
+            <div class=codeBlock>
+              <code>const element = &ltimg src={user.avatarUrl}&gt&lt/img&gt&#59</code>
+            </div>
             <p>Don’t put quotes around curly braces when embedding a JavaScript expression in an attribute. You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.</p>
-            <p><b>Warning:</b><br><br>
+            <p class="note"><b>Warning:</b><br>
 
-            Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.
+            Since JSX is closer to JavaScript than to HTML, React DOM uses <code>camelCase</code> property naming convention instead of HTML attribute names.
             
-            For example, class becomes <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/className">className</a> in JSX, and tabindex becomes <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex">tabIndex.</a></p>
-            <h1>Specifying Children with JSX</h1>
+            For example, class becomes <a target=_blank href="https://developer.mozilla.org/en-US/docs/Web/API/Element/className">className</a> in JSX, and tabindex becomes <a target=_blank href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex">tabIndex.</a></p>
+            <h3>Specifying Children with JSX</h3>
             <p>If a tag is empty, you may close it immediately with />, like XML:</p>
-            <code>const element = <img src={user.avatarUrl} />;</code>
+            <div class="codeBlock">
+              <code>const element = &ltimg src={user.avatarUrl} /&gt&#59</code>
+            </div>
             <p>JSX tags may contain children:</p>
-            <code>const element = (<br>
-              &emsp&ltdiv&gt <br>
-                  &emsp &emsp &lt h1 &gtHello!&lt/h1&gt <br>
-                  &lth2>Good to see you here.&lt/h2&gt <br>
-              &emsp&lt/div&gt <br>
-            );</code>
+            <div class="codeBlock">
+              <code>const element = (<br>
+                &nbsp&ltdiv&gt <br>
+                    &nbsp&nbsp &lth1&gtHello!&lt/h1&gt <br>
+                    &nbsp&nbsp &lth2>Good to see you here.&lt/h2&gt <br>
+                &nbsp&lt/div&gt <br>
+              );
+              </code>
+            </div>
+            <h3>JSX Prevents Injection Attacks</h3>
+            <p>It is safe to embed user input in JSX:</p>
+            <div class="codeBlock">
+              <code>
+                const title = response.potentiallyMaliciousInput; <br>
+                // This is safe: <br>
+                const element = &lth1&gt{title}&lt/h1&gt&#59 <br>
+              </code>
+            </div>
+            <p>By default, React DOM <a target=_blank href="http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html">escapes</a> any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent <a target=_blank href="https://en.wikipedia.org/wiki/Cross-site_scripting"> XSS (cross-site-scripting)</a> attacks.</p>
+            <h3>JSX Represents Objects</h3>
+            <p>Babel compiles JSX down to <code>React.createElement()</code> calls.</p>
+            <p>These two examples are identical:</p>
+            <div class="codeBlock">
+              <code>
+                const element = ( <br>
+              &nbsp    &lth1 className="greeting"&gt <br>
+              &nbsp&nbsp      Hello, world! <br>
+              &nbsp    &lt/h1&gt <br>
+                );
+              </code>
+            </div>
+            <div style="margin-top:20px" class="codeBlock">
+              <code>
+                const element = React.createElement( <br>
+              &nbsp    'h1', <br>
+              &nbsp&nbsp      {className: 'greeting'}, <br>
+              &nbsp    'Hello, world!' <br>
+                );
+              </code>
+            </div>
+            <p><code>React.createElement()</code> performs a few checks to help you write bug-free code but essentially it creates an object like this:</p>
+            <div class="codeBlock">
+              <code>
+                // Note: this structure is simplified <br>
+                const element = { <br>
+              &nbsp    type: 'h1', <br>
+              &nbsp    props: { <br>
+                &nbsp&nbsp      className: 'greeting', <br>
+                &nbsp&nbsp      children: 'Hello, world!' <br>
+                &nbsp    } <br>
+                };
+              </code>
+            </div>
+            <p>These objects are called “React elements”. You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.</p>
+            <p>We will explore rendering React elements to the DOM in the next section.</p>
+            <p class="note">
+              <b>Tip:</b> <br>
+
+              We recommend using the <a target=_blank href="http://babeljs.io/docs/en/editors/">“Babel” language definition</a> for your editor of choice so that both ES6 and JSX code is properly highlighted. This website uses the <a target=_blank href="https://labs.voronianski.com/oceanic-next-color-scheme/">Oceanic Next</a> color scheme which is compatible with it.
+            </p>
           </article>
         </section>
         <section class="main-section" id="Rendering_Elements">
           <header><h1>Rendering Elements</h1></header>
           <article>
-            <p>Elements are the smallest building blocks of React apps.</p>
+            <p><em>Elements are the smallest building blocks of React apps.</em></p>
             <p>An element describes what you want to see on the screen:</p>
-            <code>const element = Hello, world;</code>
+            <div class="codeBlock">
+              <code>const element = &lth1&gtHello, world&lt/h1&gt&#59</code>
+            </div>
             <p>Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.</p>
-            <p><b>Note:</b><br><br>
+            <p class="note"><b>Note:</b><br>
 
-            One might confuse elements with a more widely known concept of “components”. We will introduce components in the next section. Elements are what components are “made of”, and we encourage you to read this section before jumping ahead.</p>
-            <h1>Rendering an Element into the DOM</h1>
-            <p>Let’s say there is a &ltdiv&gt somewhere in your HTML file:</p>
-            <code>
-              &ltdiv id="root"&gt&lt/div&gt
-            </code>
+            One might confuse elements with a more widely known concept of “components”. We will introduce components in the <a href="#Components_and_Props">next section</a>. Elements are what components are “made of”, and we encourage you to read this section before jumping ahead.</p>
+            <h3>Rendering an Element into the DOM</h3>
+            <p>Let’s say there is a <code>&ltdiv&gt</code> somewhere in your HTML file:</p>
+            <div class="codeBlock">
+              <code>
+                &ltdiv id="root"&gt&lt/div&gt
+              </code>
+            </div>
             <p>We call this a “root” DOM node because everything inside it will be managed by React DOM.</p>
             <p>Applications built with just React usually have a single root DOM node. If you are integrating React into an existing app, you may have as many isolated root DOM nodes as you like.</p>
-            <p>To render a React element into a root DOM node, pass both to ReactDOM.render():</p>
-            <code>
-              const element = &ltdiv&gtHello, world&lt/div&gt ; <br>
-              ReactDOM.render(element, document.getElementById('root'));
-            </code>
+            <p>To render a React element into a root DOM node, pass both to <code>ReactDOM.render()</code>:</p>
+            <div id="to_render" class="codeBlock">
+              <code>
+                const element = &ltdiv&gtHello, world&lt/div&gt&#59 <br>
+                ReactDOM.render(element, document.getElementById('root'));
+              </code>
+            </div>
+            <a class="codepenAnchor" target=_blank href="https://reactjs.org/redirect-to-codepen/rendering-elements/render-an-element">Try it on CodePen</a>
             <p>It displays “Hello, world” on the page.</p>
-            <h1>Updating the Rendered Element</h1>
-            <p>React elements are <a href="https://en.wikipedia.org/wiki/Immutable_object">immutable</a>. Once you create an element, you can’t change its children or attributes. An element is like a single frame in a movie: it represents the UI at a certain point in time.</p>
-            <p>With our knowledge so far, the only way to update the UI is to create a new element, and pass it to ReactDOM.render().</p>
+            <h3 id="Updating_the_Rendered_Element">Updating the Rendered Element</h3>
+            <p>React elements are <a target=_blank href="https://en.wikipedia.org/wiki/Immutable_object">immutable</a>. Once you create an element, you can’t change its children or attributes. An element is like a single frame in a movie: it represents the UI at a certain point in time.</p>
+            <p>With our knowledge so far, the only way to update the UI is to create a new element, and pass it to <code>ReactDOM.render()</code>.</p>
             <p>Consider this ticking clock example:</p>
-            <code>
-              function tick() { <br>
-                const element = ( <br>
-                  &ltdiv&gt <br>
-                  &lth1&gtHello, world!&lt/h1&gt <br>
-                  &lth2&gtIt is {new Date().toLocaleTimeString()}.&lt/h2&gt <br>
-                  &lt/div&gt <br>
-                ); <br>
-                ReactDOM.render(element, document.getElementById('root')); <br>
-              } <br> <br>
-              
-              setInterval(tick, 1000);
-            </code>
-            <p>It calls ReactDOM.render() every second from a <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval">setInterval()</a> callback.</p>
-            <p>Note: <br><br>
+            <div id="ticking_clock" class="codeBlock">
+              <code>
+                function tick() { <br>
+              &nbsp    const element = ( <br>
+              &nbsp&nbsp        &ltdiv&gt <br>
+              &nbsp&nbsp&nbsp      &lth1&gtHello, world!&lt/h1&gt <br>
+              &nbsp&nbsp&nbsp      &lth2&gtIt is {new Date().toLocaleTimeString()}.&lt/h2&gt <br>
+              &nbsp&nbsp      &lt/div&gt <br>
+              &nbsp    ); <br>
+              &nbsp    ReactDOM.render(element, document.getElementById('root')); <br>
+                } <br> <br>
+                
+                setInterval(tick, 1000);
+              </code>
+            </div>
+            <a class="codepenAnchor" href="https://reactjs.org/redirect-to-codepen/rendering-elements/update-rendered-element">Try it on Codepen</a>
+            <p>It calls ReactDOM.render() every second from a <a target=_blank href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval">setInterval()</a> callback.</p>
+            <p class="note"><b>Note:</b> <br>
 
               In practice, most React apps only call ReactDOM.render() once. In the next sections we will learn how such code gets encapsulated into <a href="">stateful components.</a> <br> <br>
               
               We recommend that you don’t skip topics because they build on each other.</p>
-            <h1>React Only Updates What’s Necessary</h1>
+            <h3>React Only Updates What’s Necessary</h3>
             <p>React DOM compares the element and its children to the previous one, and only applies the DOM updates necessary to bring the DOM to the desired state.</p>
-            <p>You can verify by inspecting the <a href="https://reactjs.org/redirect-to-codepen/rendering-elements/update-rendered-element">last example</a> with the browser tools:</p>
+            <p>You can verify by inspecting the <a target=_blank href="https://reactjs.org/redirect-to-codepen/rendering-elements/update-rendered-element">last example</a> with the browser tools:</p>
             <img src="https://reactjs.org/granular-dom-updates-c158617ed7cc0eac8f58330e49e48224.gif">
             <p>Even though we create an element describing the whole UI tree on every tick, only the text node whose contents has changed gets updated by React DOM.</p>
             <p>In our experience, thinking about how the UI should look at any given moment rather than how to change it over time eliminates a whole class of bugs.</p>
@@ -176,40 +261,51 @@
         <section class="main-section" id="Components_and_Props">
           <header><h1>Components and Props</h1></header>
           <article>
-            <h3>Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a <a href="https://reactjs.org/docs/react-component.html">detailed component API reference here.</a></h3>
+            <p><em>Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a <a target=_blank href="https://reactjs.org/docs/react-component.html">detailed component API reference here.</a></em></p>
             <p>Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.</p>
-            <h1>Functional and Class Components</h1>
+            <h3 id="Functional_and_Class_Components">Functional and Class Components</h3>
             <p>The simplest way to define a component is to write a JavaScript function:</p>
-            <code>function Welcome(props) { <br>
-              return &lth1&gtHello, {props.name}&lt/h1&gt; <br>
-            }</code>
+            <div class="codeBlock">
+              <code>function Welcome(props) { <br>
+              &nbsp  return &lth1&gtHello, {props.name}&lt/h1&gt&#59 <br>
+              }</code>
+            </div>
             <p>This function is a valid React component because it accepts a single “props” (which stands for properties) object argument with data and returns a React element. We call such components “functional” because they are literally JavaScript functions.</p>
-            <p>You can also use an ES6 class to define a component:</p>
-            <code>
-              class Welcome extends React.Component { <br>
-                &nbsp render() { <br>
-                &nbsp &nbsp return &lth1&gtHello, {this.props.name}&lt/h1&gt; <br>
-                &nbsp } <br>
-              }
-            </code>
+            <p id="class_component">You can also use an <a target=_blank href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">ES6 class</a> to define a component:</p>
+            <div class="codeBlock">
+              <code>
+                class Welcome extends React.Component { <br>
+                  &nbsp render() { <br>
+                  &nbsp &nbsp return &lth1&gtHello, {this.props.name}&lt/h1&gt&#59 <br>
+                  &nbsp } <br>
+                }
+              </code>
+            </div>
             <p>The above two components are equivalent from React’s point of view.</p>
-            <p>Classes have some additional features that we will discuss in the <a href="https://reactjs.org/docs/state-and-lifecycle.html">next sections</a>. Until then, we will use functional components for their conciseness.</p>
-            <h1>Rendering a Component</h1>
+            <p>Classes have some additional features that we will discuss in the <a href="#State_and_Lifecycle">next sections</a>. Until then, we will use functional components for their conciseness.</p>
+            <h3>Rendering a Component</h3>
             <p>Previously, we only encountered React elements that represent DOM tags:</p>
-            <code>const element = &ltdiv /&gt;</code>
+            <div class="codeBlock">
+              <code>const element = &ltdiv /&gt&#59</code>
+            </div>
             <p>However, elements can also represent user-defined components:</p>
-            <code>const element = &ltWelcome name="Sara" /&gt;</code>
+            <div class="codeBlock">
+              <code>const element = &ltWelcome name="Sara" /&gt&#59</code>
+            </div>
             <p>When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object “props”.</p>
             <p>For example, this code renders “Hello, Sara” on the page:</p>
-            <code>function Welcome(props) { <br>
-              &nbsp return &lth1&gtHello, {props.name}&ltdiv /&gt; <br>
-            } <br> <br>
-            
-            const element = <Welcome name="Sara" />; <br>
-            ReactDOM.render( <br>
-            &nbsp  element, <br>
-            &nbsp  document.getElementById('root') <br>
-            );</code>
+            <div class="codeBlock">
+              <code>function Welcome(props) { <br>
+                &nbsp return &lth1&gtHello, {props.name}&lth1 /&gt&#59 <br>
+              } <br> <br>
+              
+              const element = <Welcome name="Sara" />; <br>
+              ReactDOM.render( <br>
+              &nbsp  element, <br>
+              &nbsp  document.getElementById('root') <br>
+              );</code>
+            </div>
+            <a target=_blank class="codepenAnchor" href="https://reactjs.org/redirect-to-codepen/components-and-props/rendering-a-component">Try it on CodePen</a>
             <p>Let’s recap what happens in this example:</p>
             <ol>
               <li>We call <code>ReactDOM.render()</code> with the <code>&ltWelcome name="Sara" /&gt</code> element.</li>
@@ -217,234 +313,366 @@
               <li>Our Welcome component returns a <code>&lth1&gtHello, Sara&lt/h1&gt</code> element as the result.</li>
               <li>React DOM efficiently updates the DOM to match <code>&lth1&gtHello, Sara&lt/h1&gt.</code></li>
             </ol>
-            <p>
-              <b>Note: Always start component names with a capital letter.</b> <br><br>
+            <p class="note">
+              <b>Note: Always start component names with a capital letter.</b> <br>
 
               React treats components starting with lowercase letters as DOM tags. For example, &ltdiv /&gt represents an HTML div tag, but &ltWelcome /&gt represents a component and requires Welcome to be in scope. <br><br>
 
-              You can read more about the reasoning behind this convention <a href="https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized">here</a>.
+              You can read more about the reasoning behind this convention <a target=_blank href="https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized">here</a>.
             </p>
-            <h1>Composing Components</h1>
+            <h3>Composing Components</h3>
             <p>Components can refer to other components in their output. This lets us use the same component abstraction for any level of detail. A button, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.</p>
             <p>For example, we can create an <code>App</code> component that renders <code>Welcome</code> many times:</p>
-            <code>
-              function Welcome(props) { <br>
-              &nbsp  return &lth1&gtHello, {props.name}&lt/h1&gt; <br>
-              }<br><br>
-              
-              function App() {<br>
-              &nbsp  return (<br>
-              &nbsp&nbsp    &ltdiv&gt<br>
-              &nbsp&nbsp    &ltWelcome name="Sara" /&gt<br>
-              &nbsp&nbsp    &ltWelcome name="Cahal" /&gt<br>
-              &nbsp&nbsp    &ltWelcome name="Edite" /&gt<br>
-              &nbsp&nbsp    &lt/div&gt<br>
-              &nbsp  );<br>
-              }<br><br>
-              
-              ReactDOM.render(<br>
-              &nbsp  &ltApp /&gt,<br>
-              &nbsp  document.getElementById('root')<br>
-              );
-            </code>
+            <div class="codeBlock">
+              <code>
+                function Welcome(props) { <br>
+                &nbsp  return &lth1&gtHello, {props.name}&lt/h1&gt&#59 <br>
+                }<br><br>
+                
+                function App() {<br>
+                &nbsp  return (<br>
+                &nbsp&nbsp    &ltdiv&gt<br>
+                &nbsp&nbsp&nbsp    &ltWelcome name="Sara" /&gt<br>
+                &nbsp&nbsp&nbsp    &ltWelcome name="Cahal" /&gt<br>
+                &nbsp&nbsp&nbsp    &ltWelcome name="Edite" /&gt<br>
+                &nbsp&nbsp    &lt/div&gt<br>
+                &nbsp  );<br>
+                }<br><br>
+                
+                ReactDOM.render(<br>
+                &nbsp  &ltApp /&gt,<br>
+                &nbsp  document.getElementById('root')<br>
+                );
+              </code>
+            </div>
+            <a class="codepenAnchor" target=_blank href="https://reactjs.org/redirect-to-codepen/components-and-props/composing-components">Try it on CodePen</a>
             <p>Typically, new React apps have a single App component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like Button and gradually work your way to the top of the view hierarchy.</p>
-            <h1>Extracting Components</h1>
+            <h3>Extracting Components</h3>
             <p>Don’t be afraid to split components into smaller components.</p>
             <p>For example, consider this <code>Comment</code> component:</p>
-            <code>
-              function Comment(props) { <br>
-                return ( <br>
-                &nbsp  &ltdiv className="Comment"&gt <br>
-                &nbsp&nbsp    &ltdiv className="UserInfo"&gt <br>
-                &nbsp&nbsp&nbsp      &ltimg className="Avatar" <br>
-                &nbsp&nbsp&nbsp&nbsp       src={props.author.avatarUrl} <br>
-                &nbsp&nbsp&nbsp&nbsp        alt={props.author.name} <br>
-                &nbsp&nbsp&nbsp      /&gt <br>
-                &nbsp&nbsp&nbsp      &ltdiv className="UserInfo-name"&gt <br>
-                &nbsp&nbsp&nbsp&nbsp        {props.author.name} <br>
-                &nbsp&nbsp&nbsp      &lt/div&gt <br>
-                &nbsp&nbsp    &lt/div&gt <br>
-                &nbsp&nbsp    &ltdiv className="Comment-text"&gt <br>
-                &nbsp&nbsp&nbsp      {props.text} <br>
-                &nbsp&nbsp    &lt/div&gt <br>
-                &nbsp&nbsp    &ltdiv className="Comment-date"&gt <br>
-                &nbsp&nbsp&nbsp      {formatDate(props.date)} <br>
-                &nbsp&nbsp    &lt/div&gt <br>
-                &nbsp  &lt/div&gt <br>
-                &nbsp); <br>
-              }
-            </code>
+            <div class="codeBlock">
+              <code>
+                function Comment(props) { <br>
+                  &nbsp return ( <br>
+                  &nbsp&nbsp  &ltdiv className="Comment"&gt <br>
+                  &nbsp&nbsp&nbsp    &ltdiv className="UserInfo"&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp      &ltimg className="Avatar" <br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp       src={props.author.avatarUrl} <br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp        alt={props.author.name} <br>
+                  &nbsp&nbsp&nbsp&nbsp      /&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp      &ltdiv className="UserInfo-name"&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp        {props.author.name} <br>
+                  &nbsp&nbsp&nbsp&nbsp      &lt/div&gt <br>
+                  &nbsp&nbsp&nbsp    &lt/div&gt <br>
+                  &nbsp&nbsp&nbsp    &ltdiv className="Comment-text"&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp      {props.text} <br>
+                  &nbsp&nbsp&nbsp    &lt/div&gt <br>
+                  &nbsp&nbsp&nbsp    &ltdiv className="Comment-date"&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp      {formatDate(props.date)} <br>
+                  &nbsp&nbsp&nbsp    &lt/div&gt <br>
+                  &nbsp&nbsp  &lt/div&gt <br>
+                  &nbsp); <br>
+                }
+              </code>
+            </div>
             <p>It accepts <code>author</code> (an object), <code>text</code> (a string), and <code>date</code> (a date) as props, and describes a comment on a social media website.</p>
             <p>This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let’s extract a few components from it.</p>
             <p>First, we will extract <code>Avatar:</code></p>
-            <code>
-              function Avatar(props) { <br>
-              &nbsp  return ( <br>
-              &nbsp&nbsp    &ltimg className="Avatar" <br>
-              &nbsp&nbsp&nbsp      src={props.user.avatarUrl} <br>
-              &nbsp&nbsp&nbsp     alt={props.user.name} <br>
-              &nbsp&nbsp   /&gt <br>
-              
-              &nbsp ); <br>
-              }
-            </code>
+            <div class="codeBlock">
+              <code>
+                function Avatar(props) { <br>
+                &nbsp  return ( <br>
+                &nbsp&nbsp    &ltimg className="Avatar" <br>
+                &nbsp&nbsp&nbsp      src={props.user.avatarUrl} <br>
+                &nbsp&nbsp&nbsp     alt={props.user.name} <br>
+                &nbsp&nbsp   /&gt <br>
+                
+                &nbsp ); <br>
+                }
+              </code>
+            </div>
             <p>The <code>Avatar</code> doesn’t need to know that it is being rendered inside a <code>Comment</code>. This is why we have given its prop a more generic name: <code>user</code> rather than <code>author</code>.
             </p>
             <p>We recommend naming props from the component’s own point of view rather than the context in which it is being used.</p>
             <p>We can now simplify <code>Comment</code> a tiny bit:</p>
-            <code>
-              function Comment(props) { <br>
-                &nbsp&nbsp return ( <br>
-                &nbsp&nbsp  &ltdiv className="Comment"&gt <br>
-                &nbsp&nbsp&nbsp    &ltdiv className="UserInfo"&gt <br>
-                &nbsp&nbsp&nbsp&nbsp    &ltAvatar user={props.author} /&gt <br>
-                &nbsp&nbsp&nbsp&nbsp&nbsp      &ltdiv className="UserInfo-name"&gt <br>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp        {props.author.name} <br>
-                &nbsp&nbsp&nbsp&nbsp&nbsp      &lt/div&gt <br>
-                &nbsp&nbsp&nbsp&nbsp    &lt/div&gt <br>
-                &nbsp&nbsp&nbsp&nbsp    &ltdiv className="Comment-text"&gt <br>
-                &nbsp&nbsp&nbsp&nbsp&nbsp      {props.text} <br>
-                &nbsp&nbsp&nbsp&nbsp    &lt/div&gt <br>
-                &nbsp&nbsp&nbsp&nbsp    &ltdiv className="Comment-date"&gt <br>
-                &nbsp&nbsp&nbsp&nbsp&nbsp     {formatDate(props.date)} <br>
-                &nbsp&nbsp&nbsp&nbsp   &lt/div&gt <br>
-                &nbsp&nbsp&nbsp  &lt/div&gt <br>
-                &nbsp&nbsp); <br>
-                &nbsp}
-            </code>
+            <div class="codeBlock">
+              <code>
+                function Comment(props) { <br>
+                  &nbsp return ( <br>
+                  &nbsp&nbsp&nbsp  &ltdiv className="Comment"&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp    &ltdiv className="UserInfo"&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp   &ltAvatar user={props.author} /&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp      &ltdiv className="UserInfo-name"&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp        {props.author.name} <br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp      &lt/div&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp   &lt/div&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp    &ltdiv className="Comment-text"&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp      {props.text} <br>
+                  &nbsp&nbsp&nbsp&nbsp    &lt/div&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp    &ltdiv className="Comment-date"&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp     {formatDate(props.date)} <br>
+                  &nbsp&nbsp&nbsp&nbsp   &lt/div&gt <br>
+                  &nbsp&nbsp&nbsp  &lt/div&gt <br>
+                  &nbsp&nbsp); <br>
+                  &nbsp}
+              </code>
+            </div>
             <p>Next, we will extract a <code>UserInfo</code> component that renders an <code>Avatar</code> next to the user’s name:</p>
-            <code>
-              function UserInfo(props) { <br>
-              &nbsp  return ( <br>
-              &nbsp&nbsp    &ltdiv className="UserInfo"&gt <br>
-              &nbsp&nbsp&nbsp      &ltAvatar user={props.user} /&gt <br>
-              &nbsp&nbsp&nbsp      &ltdiv className="UserInfo-name"&gt <br>
-              &nbsp&nbsp&nbsp&nbsp        {props.user.name} <br>
-              &nbsp&nbsp&nbsp      &lt/div&gt <br>
-              &nbsp&nbsp    &lt/div&gt <br>
-              &nbsp  ); <br>
-              }
-            </code>
-            <p>This lets us simplify <code>Comment</code> even further:</p>
-            <code>
-              function Comment(props) { <br>
-              &nbsp  return ( <br>
-              &nbsp&nbsp    &ltdiv className="Comment"&gt <br>
-              &nbsp&nbsp&nbsp      &ltUserInfo user={props.author} /&gt <br>
-              &nbsp&nbsp&nbsp     &ltdiv className="Comment-text"&gt <br>
-              &nbsp&nbsp&nbsp&nbsp        {props.text} <br>
-              &nbsp&nbsp&nbsp     &lt/div&gt <br>
-              &nbsp&nbsp&nbsp      &ltdiv className="Comment-date"&gt <br>
-              &nbsp&nbsp&nbsp&nbsp        {formatDate(props.date)} <br>
-              &nbsp&nbsp&nbsp     &lt/div&gt <br>
-              &nbsp&nbsp   &lt/div&gt <br>
-              &nbsp ); <br>
-              } <br>
-            </code>
-            <p>Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (<code>Button</code>, <code>Panel</code>, <code>Avatar</code>), or is complex enough on its own (<code>App</code>, <code>FeedStory</code>, <code>Comment</code>), it is a good candidate to be a reusable component.</p>
-            <h1>Props are Read-Only</h1>
-            <p>Whether you declare a component as a function or a class, it must never modify its own props. Consider this <code>sum</code> function:</p>
-            <code>
-              function sum(a, b) { <br>
-              &nbsp return a + b; <br>
-            }
-            </code>
-            <p>Such functions are called <a href="https://en.wikipedia.org/wiki/Pure_function">“pure”</a> because they do not attempt to change their inputs, and always return the same result for the same inputs.</p>
-            <p>In contrast, this function is impure because it changes its own input:</p>
-            <code>
-                function withdraw(account, amount) { <br>
-                &nbsp  account.total -= amount; <br>
+            <div class="codeBlock">
+              <code>
+                function UserInfo(props) { <br>
+                &nbsp  return ( <br>
+                &nbsp&nbsp    &ltdiv className="UserInfo"&gt <br>
+                &nbsp&nbsp&nbsp      &ltAvatar user={props.user} /&gt <br>
+                &nbsp&nbsp&nbsp      &ltdiv className="UserInfo-name"&gt <br>
+                &nbsp&nbsp&nbsp&nbsp        {props.user.name} <br>
+                &nbsp&nbsp&nbsp      &lt/div&gt <br>
+                &nbsp&nbsp    &lt/div&gt <br>
+                &nbsp  ); <br>
                 }
-            </code>
+              </code>
+            </div>
+            <p>This lets us simplify <code>Comment</code> even further:</p>
+            <div class="codeBlock">
+              <code>
+                function Comment(props) { <br>
+                &nbsp  return ( <br>
+                &nbsp&nbsp    &ltdiv className="Comment"&gt <br>
+                &nbsp&nbsp&nbsp      &ltUserInfo user={props.author} /&gt <br>
+                &nbsp&nbsp&nbsp     &ltdiv className="Comment-text"&gt <br>
+                &nbsp&nbsp&nbsp&nbsp        {props.text} <br>
+                &nbsp&nbsp&nbsp     &lt/div&gt <br>
+                &nbsp&nbsp&nbsp      &ltdiv className="Comment-date"&gt <br>
+                &nbsp&nbsp&nbsp&nbsp        {formatDate(props.date)} <br>
+                &nbsp&nbsp&nbsp     &lt/div&gt <br>
+                &nbsp&nbsp   &lt/div&gt <br>
+                &nbsp ); <br>
+                } <br>
+              </code>
+            </div>
+            <a class="codepenAnchor" target=_blank href="https://reactjs.org/redirect-to-codepen/components-and-props/extracting-components-continued">Try it on CodePen</a>
+            <p>Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (<code>Button</code>, <code>Panel</code>, <code>Avatar</code>), or is complex enough on its own (<code>App</code>, <code>FeedStory</code>, <code>Comment</code>), it is a good candidate to be a reusable component.</p>
+            <h3>Props are Read-Only</h3>
+            <p>Whether you declare a component as a <a href="#Functional_and_Class_Components">function or a class</a>, it must never modify its own props. Consider this <code>sum</code> function:</p>
+            <div class="codeBlock">
+              <code>
+                function sum(a, b) { <br>
+                &nbsp return a + b; <br>
+              }
+              </code>
+            </div>
+            <p>Such functions are called <a target=_blank href="https://en.wikipedia.org/wiki/Pure_function">“pure”</a> because they do not attempt to change their inputs, and always return the same result for the same inputs.</p>
+            <p>In contrast, this function is impure because it changes its own input:</p>
+            <div class="codeBlock">
+              <code>
+                  function withdraw(account, amount) { <br>
+                  &nbsp  account.total -= amount; <br>
+                  }
+              </code>
+            </div>
             <p>React is pretty flexible but it has a single strict rule:</p>
-            <p><b>All React components must act like pure functions with respect to their props.</b></p>
-            <p>Of course, application UIs are dynamic and change over time. In the next section, we will introduce a new concept of “state”. State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.</p>
+            <br><p><b>All React components must act like pure functions with respect to their props.</b></p><br>
+            <p>Of course, application UIs are dynamic and change over time. In the <a href="#State_and_Lifecycle">next section</a>, we will introduce a new concept of “state”. State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.</p>
           </article>
         </section>
         <section class="main-section" id="State_and_Lifecycle">
           <header><h1>State and Lifecycle</h1></header>
           <article>
-            <h3>This page introduces the concept of state and lifecycle in a React component. You can find a <a href="https://reactjs.org/docs/react-component.html"></a>detailed component API reference here</a>.</h3>
-            <p>Consider the ticking clock example from one of the previous sections. In Rendering Elements, we have only learned one way to update the UI. We call <code>ReactDOM.render()</code> to change the rendered output:</p>
-            <code>
-                function tick() { <br>
-                &nbsp  const element = ( <br>
-                &nbsp&nbsp    &ltdiv&gt <br>
-                &nbsp&nbsp&nbsp      &lth1&gtHello, world!&lt/h1&gt <br>
-                &nbsp&nbsp&nbsp      &lth2&gtIt is {new Date().toLocaleTimeString()}.&lt/h2&gt <br>
-                &nbsp&nbsp    &lt/div&gt <br>
-                &nbsp  ); <br>
-                &nbsp&nbsp  ReactDOM.render( <br>
-                &nbsp&nbsp    element, <br>
-                &nbsp&nbsp    document.getElementById('root') <br>
-                &nbsp  ); <br>
-                } <br>
-            
-                setInterval(tick, 1000);
-            </code>
+            <p><em>This page introduces the concept of state and lifecycle in a React component. You can find a <a target=_blank href="https://reactjs.org/docs/react-component.html">detailed component API reference here</a>.</em></p>
+            <p>Consider the ticking clock example from <a href="#ticking_clock">one of the previous sections</a>. In <a href="#to_render">Rendering Elements</a>, we have only learned one way to update the UI. We call <code>ReactDOM.render()</code> to change the rendered output:</p>
+            <div class="codeBlock">
+              <code>
+                  function tick() { <br>
+                  &nbsp  const element = ( <br>
+                  &nbsp&nbsp    &ltdiv&gt <br>
+                  &nbsp&nbsp&nbsp      &lth1&gtHello, world!&lt/h1&gt <br>
+                  &nbsp&nbsp&nbsp      &lth2&gtIt is {new Date().toLocaleTimeString()}.&lt/h2&gt <br>
+                  &nbsp&nbsp    &lt/div&gt <br>
+                  &nbsp  ); <br>
+                  &nbsp&nbsp  ReactDOM.render( <br>
+                  &nbsp&nbsp    element, <br>
+                  &nbsp&nbsp    document.getElementById('root') <br>
+                  &nbsp  ); <br>
+                  } <br><br>
+              
+                  setInterval(tick, 1000);
+              </code>
+            </div>
+            <a class="codepenAnchor" target="_blank" href="http://codepen.io/gaearon/pen/gwoJZk?editors=0010">Try it on Codepen</a>
             <p>In this section, we will learn how to make the <code>Clock</code> component truly reusable and encapsulated. It will set up its own timer and update itself every second.</p>
             <p>We can start by encapsulating how the clock looks:</p>
-            <code>
-              function Clock(props) { <br>
-            &nbsp    return ( <br>
-            &nbsp&nbsp      &ltdiv&gt <br>
-            &nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
-            &nbsp&nbsp&nbsp        &lth2&gtIt is {props.date.toLocaleTimeString()}.&lt/h2&gt <br>
-            &nbsp&nbsp      &lt/div&gt <br>
-            &nbsp    ); <br>
-              } <br><br>
-              
-            function tick() { <br>
-            &nbsp    ReactDOM.render( <br>
-            &nbsp&nbsp      &ltClock date={new Date()} /&gt, <br>
-            &nbsp&nbsp      document.getElementById('root') <br>
-            &nbsp    ); <br>
-              } <br><br>
-              
-              setInterval(tick, 1000);
-            </code>
+            <div class="codeBlock">
+              <code>
+                function Clock(props) { <br>
+              &nbsp    return ( <br>
+              &nbsp&nbsp      &ltdiv&gt <br>
+              &nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
+              &nbsp&nbsp&nbsp        &lth2&gtIt is {props.date.toLocaleTimeString()}.&lt/h2&gt <br>
+              &nbsp&nbsp      &lt/div&gt <br>
+              &nbsp    ); <br>
+                } <br><br>
+                
+              function tick() { <br>
+              &nbsp    ReactDOM.render( <br>
+              &nbsp&nbsp      &ltClock date={new Date()} /&gt, <br>
+              &nbsp&nbsp      document.getElementById('root') <br>
+              &nbsp    ); <br>
+                } <br><br>
+                
+                setInterval(tick, 1000);
+              </code>
+            </div>
+            <a class="codepenAnchor" target="_blank" href="http://codepen.io/gaearon/pen/dpdoYR?editors=0010">Try it on Codepen</a>
             <p>However, it misses a crucial requirement: the fact that the <code>Clock</code> sets up a timer and updates the UI every second should be an implementation detail of the <code>Clock.</code></p>
             <p>Ideally we want to write this once and have the <code>Clock</code> update itself:</p>
-            <code>
-                ReactDOM.render( <br>
-                &nbsp  &ltClock /&gt, <br>
-                &nbsp   document.getElementById('root') <br>
-                );
-            </code>
+            <div class="codeBlock">
+              <code>
+                  ReactDOM.render( <br>
+                  &nbsp  &ltClock /&gt, <br>
+                  &nbsp   document.getElementById('root') <br>
+                  );
+              </code>
+            </div>
             <p>To implement this, we need to add “state” to the <code>Clock</code> component.</p>
             <p>State is similar to props, but it is private and fully controlled by the component.</p>
-            <p>We <a href="https://reactjs.org/docs/components-and-props.html#functional-and-class-components">mentioned before </a> that components defined as classes have some additional features. Local state is exactly that: a feature available only to classes.</p>
-            <h1>Converting a Function to a Class</h1>
+            <p>We <a target=_blank href="#class_component">mentioned before</a> that components defined as classes have some additional features. Local state is exactly that: a feature available only to classes.</p>
+            <h3>Converting a Function to a Class</h3>
             <p>You can convert a functional component like Clock to a class in five steps:</p>
             <ol>
-              <li>Create an <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">ES6 class</a>, with the same name, that extends <code>React.Component.</code></li>
+              <li>Create an <a target=_blank href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">ES6 class</a>, with the same name, that extends <code>React.Component.</code></li>
               <li>Add a single empty method to it called <code>render()</code>.</li>
               <li>Move the body of the function into the <code>render()</code> method.</li>
               <li>Replace <code>props</code> with <code>this.props</code> in the render() body.</li>
               <li>Delete the remaining empty function declaration.</li>
             </ol>
-            <code>
+            <div class="codeBlock">
+              <code>
+                  class Clock extends React.Component { <br>
+                  &nbsp  render() { <br>
+                  &nbsp&nbsp    return ( <br>
+                  &nbsp&nbsp&nbsp      &ltdiv&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
+                  &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.props.date.toLocaleTimeString()}.&lt/h2&gt <br>
+                  &nbsp&nbsp&nbsp      &lt/div&gt <br>
+                  &nbsp&nbsp    ); <br>
+                  &nbsp  } <br>
+                  }
+              </code>
+            </div>
+            <a class="codepenAnchor" target=_blank href="http://codepen.io/gaearon/pen/zKRGpo?editors=0010">Try it on CodePen</a>
+            <p><code>Clock</code> is now defined as a class rather than a function.</p>
+            <p>The <code>render</code> method will be called each time an update happens, but as long as we render <code>&ltClock /&gt</code> into the same DOM node, only a single instance of the <code>Clock</code> class will be used. This lets us use additional features such as local state and lifecycle hooks.</p>
+            <h3>Adding Local State to a Class</h3>
+            <p>We will move the <code>date</code> from props to state in three steps:</p>
+            <ol>
+              <li>Replace <code>this.props.date</code> with <code>this.state.date</code> in the <code>render()</code> method:</li>
+            </ol>
+            <div class="codeBlock">
+              <code>
                 class Clock extends React.Component { <br>
                 &nbsp  render() { <br>
                 &nbsp&nbsp    return ( <br>
                 &nbsp&nbsp&nbsp      &ltdiv&gt <br>
                 &nbsp&nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
-                &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.props.date.toLocaleTimeString()}.&lt/h2&gt <br>
+                &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
+                &nbsp&nbsp&nbsp      &lt/div&gt <br>
+                &nbsp&nbsp    ); <br>
+                &nbsp  } <br>
+                } <br>
+              </code>
+            </div>
+            <ol start="2">
+              <li>Add a <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor">class constructor</a> that assigns the initial <code>this.state:</code></li>
+            </ol>
+            <div class="codeBlock">
+              <code>
+                class Clock extends React.Component { <br>
+                &nbsp    constructor(props) { <br>
+                &nbsp&nbsp    super(props); <br>
+                &nbsp&nbsp      this.state = {date: new Date()}; <br>
+                &nbsp    } <br><br>
+                
+                &nbsp  render() { <br>
+                &nbsp&nbsp      return ( <br>
+                &nbsp&nbsp&nbsp      &ltdiv&gt <br>
+                &nbsp&nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
+                &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
                 &nbsp&nbsp&nbsp      &lt/div&gt <br>
                 &nbsp&nbsp    ); <br>
                 &nbsp  } <br>
                 }
-            </code>
-            <a href="http://codepen.io/gaearon/pen/zKRGpo?editors=0010">Try it on CodePen</a>
-            <p><code>Clock</code> is now defined as a class rather than a function.</p>
-            <p>The <code>render</code> method will be called each time an update happens, but as long as we render <code>&ltClock /&gt</code> into the same DOM node, only a single instance of the <code>Clock</code> class will be used. This lets us use additional features such as local state and lifecycle hooks.</p>
-            <h1>Adding Local State to a Class</h1>
-            <p>We will move the <code>date</code> from props to state in three steps:</p>
-            <ol>
-              <li>Replace <code>this.props.date</code> with <code>this.state.date</code> in the <code>render()</code> method:</li>
+              </code>
+            </div>
+            <p>Note how we pass <code>props</code> to the base constructor:</p>
+            <div class="codeBlock">
+              <code>
+                constructor(props) { <br>
+                &nbsp  super(props); <br>
+                &nbsp  this.state = {date: new Date()}; <br>
+                }
+              </code>
+            </div>
+            <p>Class components should always call the base constructor with <code>props</code>.</p>
+            <ol start="3">
+              <li>Remove the date <code>prop</code> from the <code>&ltClock /&gt</code> element:</li>
             </ol>
+            <div class="codeBlock">
+              <code>
+                ReactDOM.render( <br>
+              &nbsp    &ltClock /&gt, <br>
+              &nbsp    document.getElementById('root') <br>
+                );
+              </code>
+            </div>
+            <p>We will later add the timer code back to the component itself.</p>
+            <p>The result looks like this:</p>
+            <div class="codeBlock">
+              <code>
+                class Clock extends React.Component { <br>
+              &nbsp    constructor(props) { <br>
+              &nbsp&nbsp      super(props); <br>
+              &nbsp&nbsp      this.state = {date: new Date()}; <br>
+              &nbsp    } <br>
+              
+              &nbsp  render() { <br>
+              &nbsp&nbsp    return ( <br>
+              &nbsp&nbsp&nbsp      &ltdiv&gt <br>
+              &nbsp&nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
+              &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
+              &nbsp&nbsp&nbsp      &lt/div&gt <br>
+              &nbsp&nbsp    ); <br>
+              &nbsp } <br>
+              } <br><br>
+              
+              ReactDOM.render( <br>
+              &nbsp  &ltClock /&gt, <br>
+              &nbsp  document.getElementById('root') <br>
+              );
+            </code>
+          </div>
+          <a class="codepenAnchor" target=_blank href="http://codepen.io/gaearon/pen/KgQpJd?editors=0010">Try it on CodePen</a>
+          <p>Next, we’ll make the Clock set up its own timer and update itself every second.</p>
+          <h3>Adding Lifecycle Methods to a Class</h3>
+          <p>In applications with many components, it’s very important to free up resources taken by the components when they are destroyed.</p>
+          <p>We want to <a target=_blank href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval">set up a timer</a> whenever the <code>Clock</code> is rendered to the DOM for the first time. This is called “mounting” in React.</p>
+          <p>We also want to <a target=_blank href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval">clear that timer</a> whenever the DOM produced by the <code>Clock</code> is removed. This is called “unmounting” in React.</p>
+          <p>We can declare special methods on the component class to run some code when a component mounts and unmounts:</p>
+          <div class="codeBlock">
             <code>
               class Clock extends React.Component { <br>
+              &nbsp  constructor(props) { <br>
+              &nbsp&nbsp    super(props); <br>
+              &nbsp&nbsp    this.state = {date: new Date()}; <br>
+              &nbsp  } <br> <br>
+              
+              &nbsp  componentDidMount() { <br><br>
+              
+              &nbsp  } <br><br>
+              
+              &nbsp  componentWillUnmount() {  <br><br>
+              
+              &nbsp  } <br><br>
+              
               &nbsp  render() { <br>
               &nbsp&nbsp    return ( <br>
               &nbsp&nbsp&nbsp      &ltdiv&gt <br>
@@ -453,161 +681,75 @@
               &nbsp&nbsp&nbsp      &lt/div&gt <br>
               &nbsp&nbsp    ); <br>
               &nbsp  } <br>
-              } <br>
-            </code>
-            <ol start="2">
-              <li>Add a <a href+"https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor">class constructor</a> that assigns the initial <code>this.state:</code></li>
-            </ol>
-            <code>
-              class Clock extends React.Component { <br>
-              &nbsp    constructor(props) { <br>
-              &nbsp&nbsp    super(props); <br>
-              &nbsp&nbsp      this.state = {date: new Date()}; <br>
-              &nbsp    } <br><br>
-              
-              &nbsp  render() { <br>
-              &nbsp&nbsp&nbsp      return ( <br>
-              &nbsp&nbsp&nbsp      &ltdiv&gt <br>
-              &nbsp&nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
-              &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
-              &nbsp&nbsp&nbsp      &lt/div&gt <br>
-              &nbsp&nbsp    ); <br>
-              &nbsp  } <br>
               }
             </code>
-            <p>Note how we pass <code>props</code> to the base constructor:</p>
-            <code>
-              constructor(props) { <br>
-              &nbsp  super(props); <br>
-              &nbsp  this.state = {date: new Date()}; <br>
-              }
-            </code>
-            <p>Class components should always call the base constructor with <code>props</code>.</p>
-            <ol start="3">
-              <li>Remove the date <code>prop</code> from the <code>&ltClock /&gt</code> element:</li>
-            </ol>
-            <code>
-              ReactDOM.render( <br>
-            &nbsp    &ltClock /&gt, <br>
-            &nbsp    document.getElementById('root') <br>
-              );
-            </code>
-            <p>We will later add the timer code back to the component itself.</p>
-            <p>The result looks like this:</p>
-            <code>
-              class Clock extends React.Component { <br>
-            &nbsp    constructor(props) { <br>
-            &nbsp&nbsp      super(props); <br>
-            &nbsp&nbsp      this.state = {date: new Date()}; <br>
-            &nbsp    } <br>
-            
-            &nbsp  render() { <br>
-            &nbsp&nbsp    return ( <br>
-            &nbsp&nbsp&nbsp      &ltdiv&gt <br>
-            &nbsp&nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
-            &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
-            &nbsp&nbsp&nbsp      &lt/div&gt <br>
-            &nbsp&nbsp    ); <br>
-            &nbsp } <br>
-            } <br><br>
-            
-            ReactDOM.render( <br>
-            &nbsp  &ltClock /&gt, <br>
-            &nbsp  document.getElementById('root') <br>
-            );
-          </code>
-          <a href="http://codepen.io/gaearon/pen/KgQpJd?editors=0010">Try it on CodePen</a>
-          <p>Next, we’ll make the Clock set up its own timer and update itself every second.</p>
-          <h1>Adding Lifecycle Methods to a Class</h1>
-          <p>In applications with many components, it’s very important to free up resources taken by the components when they are destroyed.</p>
-          <p>We want to <ahref="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval">set up a timer</a> whenever the <code>Clock</code> is rendered to the DOM for the first time. This is called “mounting” in React.</p>
-          <p>We also want to <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval">clear that timer</a> whenever the DOM produced by the <code>Clock</code> is removed. This is called “unmounting” in React.</p>
-          <p>We can declare special methods on the component class to run some code when a component mounts and unmounts:</p>
-          <code>
-            class Clock extends React.Component { <br>
-            &nbsp  constructor(props) { <br>
-            &nbsp&nbsp    super(props); <br>
-            &nbsp&nbsp    this.state = {date: new Date()}; <br>
-            &nbsp  } <br> <br>
-            
-            &nbsp  componentDidMount() { <br><br>
-            
-            &nbsp  } <br><br>
-            
-            &nbsp  componentWillUnmount() {  <br><br>
-            
-            &nbsp  } <br><br>
-            
-            &nbsp  render() { <br>
-            &nbsp&nbsp    return ( <br>
-            &nbsp&nbsp&nbsp      &ltdiv&gt <br>
-            &nbsp&nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
-            &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
-            &nbsp&nbsp&nbsp      &lt/div&gt <br>
-            &nbsp&nbsp    ); <br>
-            &nbsp  } <br>
-            }
-          </code>
+          </div>
           <p>These methods are called “lifecycle hooks”.</p>
           <p>The <code>componentDidMount()</code> hook runs after the component output has been rendered to the DOM. This is a good place to set up a timer:</p>
-          <code>
-              componentDidMount() { <br>
-              &nbsp  this.timerID = setInterval( <br>
-              &nbsp&nbsp    () => this.tick(), <br>
-              &nbsp&nbsp    1000 <br>
-              &nbsp); <br>
-              }
-          </code>
+          <div class="codeBlock">
+            <code>
+                componentDidMount() { <br>
+                &nbsp  this.timerID = setInterval( <br>
+                &nbsp&nbsp    () => this.tick(), <br>
+                &nbsp&nbsp    1000 <br>
+                &nbsp); <br>
+                }
+            </code>
+          </div>
           <p>Note how we save the timer ID right on <code>this</code>.</p>
           <p>While <code>this.props</code> is set up by React itself and <code>this.state</code> has a special meaning, you are free to add additional fields to the class manually if you need to store something that doesn’t participate in the data flow (like a timer ID).</p>
           <p>We will tear down the timer in the <code>componentWillUnmount()</code> lifecycle hook:</p>
-          <code>
-              componentWillUnmount() { <br>
-              &nbsp  clearInterval(this.timerID); <br>
-              }
-          </code>
+          <div class="codeBlock">
+            <code>
+                componentWillUnmount() { <br>
+                &nbsp  clearInterval(this.timerID); <br>
+                }
+            </code>
+          </div>  
           <p>Finally, we will implement a method called <code>tick()</code> that the <code>Clock</code> component will run every second.</p>
           <p>It will use <code>this.setState()</code> to schedule updates to the component local state:</p>
-          <code>
-              class Clock extends React.Component { <br>
-              &nbsp  constructor(props) { <br>
-                &nbsp&nbsp    super(props); <br>
-                &nbsp&nbsp  this.state = {date: new Date()}; <br>
-              &nbsp  } <br><br>
-              
-              &nbsp  componentDidMount() { <br>
-              &nbsp&nbsp    this.timerID = setInterval( <br>
-              &nbsp&nbsp&nbsp      () => this.tick(), <br>
-              &nbsp&nbsp&nbsp      1000 <br>
-              &nbsp&nbsp    ); <br>
-              &nbsp  } <br><br>
-              
-              &nbsp  componentWillUnmount() { <br>
-                &nbsp&nbsp    clearInterval(this.timerID); <br>
+          <div class="codeBlock">
+            <code>
+                class Clock extends React.Component { <br>
+                &nbsp  constructor(props) { <br>
+                  &nbsp&nbsp    super(props); <br>
+                  &nbsp&nbsp  this.state = {date: new Date()}; <br>
                 &nbsp  } <br><br>
-              
-                &nbsp  tick() { <br>
-                  &nbsp&nbsp  this.setState({ <br>
+                
+                &nbsp  componentDidMount() { <br>
+                &nbsp&nbsp    this.timerID = setInterval( <br>
+                &nbsp&nbsp&nbsp      () => this.tick(), <br>
+                &nbsp&nbsp&nbsp      1000 <br>
+                &nbsp&nbsp    ); <br>
+                &nbsp  } <br><br>
+                
+                &nbsp  componentWillUnmount() { <br>
+                  &nbsp&nbsp    clearInterval(this.timerID); <br>
+                  &nbsp  } <br><br>
+                
+                  &nbsp  tick() { <br>
+                    &nbsp&nbsp  this.setState({ <br>
                     &nbsp&nbsp&nbsp    date: new Date() <br>
                     &nbsp&nbsp  }); <br>
-                    &nbsp} <br><br>
-              
-                    &nbsp render() { <br>
-                      &nbsp&nbsp  return ( <br>
-                      &nbsp&nbsp&nbsp  &ltdiv&gt <br>
-                      &nbsp&nbsp&nbsp&nbsp      &lth1&gtHello, world!&lt/h1&gt <br>
-                      &nbsp&nbsp&nbsp&nbsp    &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
-                      &nbsp&nbsp&nbsp  &lt/div&gt <br>
-                      &nbsp&nbsp  ); <br>
-                      &nbsp } <br>
-                      &nbsp } <br><br>
-              
-              ReactDOM.render( <br>
-              &nbsp  &ltClock /&gt, <br>
-              &nbsp  document.getElementById('root') <br>
-              );
-          </code>
-          <a href="http://codepen.io/gaearon/pen/amqdNA?editors=0010">Try it on CodePen</a>
+                    &nbsp&nbsp} <br><br>
+                
+                        &nbsp render() { <br>
+                        &nbsp&nbsp  return ( <br>
+                        &nbsp&nbsp&nbsp  &ltdiv&gt <br>
+                        &nbsp&nbsp&nbsp&nbsp      &lth1&gtHello, world!&lt/h1&gt <br>
+                        &nbsp&nbsp&nbsp&nbsp    &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
+                        &nbsp&nbsp&nbsp  &lt/div&gt <br>
+                        &nbsp&nbsp  ); <br>
+                        &nbsp } <br>
+                         } <br><br>
+                
+                ReactDOM.render( <br>
+                &nbsp  &ltClock /&gt, <br>
+                &nbsp  document.getElementById('root') <br>
+                );
+            </code>
+          </div>  
+          <a class="codepenAnchor" target=_blank href="http://codepen.io/gaearon/pen/amqdNA?editors=0010">Try it on CodePen</a>
           <p>Now the clock ticks every second.</p>
           <p>Let’s quickly recap what’s going on and the order in which the methods are called:</p>
           <ol>
@@ -625,112 +767,135 @@
               If the <code>Clock</code> component is ever removed from the DOM, React calls the <code>componentWillUnmount()</code> lifecycle hook so the timer is stopped.
             </li>
           </ol>
-          <h2>Using State Correctly</h2>
+          <h3>Using State Correctly</h3>
           <p>There are three things you should know about <code>setState()</code>.</p>
-          <h3>Do Not Modify State Directly</h3>
+          <h4>Do Not Modify State Directly</h4>
           <p>For example, this will not re-render a component:</p>
-          <code>
-            // Wrong <br>
-this.state.comment = 'Hello';
-          </code>
-          <p>Instead, use setState():</p>
-          <code>
+          <div class="codeBlock">
+            <code>
+              // Wrong <br>
+  this.state.comment = 'Hello';
+            </code>
+          </div>    
+            <p>Instead, use setState():</p>
+          <div class="codeBlock">
+            <code>
             // Correct <br>
 this.setState({comment: 'Hello'});
-          </code>
+            </code>
+          </div>
           <p>The only place where you can assign <code>this.state</code> is the constructor.</p>
-          <h3>State Updates May Be Asynchronous</h3>
+          <h4>State Updates May Be Asynchronous</h4>
           <p>React may batch multiple <code>setState()</code> calls into a single update for performance.</p>
           <p>Because <code>this.props</code> and <code>this.state</code> may be updated asynchronously, you should not rely on their values for calculating the next state.</p>
           <p>For example, this code may fail to update the counter:</p>
-          <code>
-            // Wrong <br>
-            this.setState({ <br>
-            &nbsp counter: this.state.counter + this.props.increment, <br>
-            );
-          </code>
+          <div class="codeBlock">
+            <code>
+              // Wrong <br>
+              this.setState({ <br>
+              &nbsp counter: this.state.counter + this.props.increment, <br>
+              );
+            </code>
+          </div>
           <p>To fix it, use a second form of <code>setState()</code> that accepts a function rather than an object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:</p>
-          <code>
-            // Correct <br>
-            this.setState((prevState, props) => ({ <br>
-            &nbsp counter: prevState.counter + props.increment <br>
-            }));
-          </code>
-          <p>We used an arrow function above, but it also works with regular functions:</p>
-          <code>
-            // Correct <br>
-            this.setState(function(prevState, props) { <br>
-            &nbsp  return { <br>
-            &nbsp&nbsp    counter: prevState.counter + props.increment <br>
-            &nbsp  }; <br>
-            });</code>
-            <h3>State Updates are Merged</h3>
+          <div class="codeBlock">
+            <code>
+              // Correct <br>
+              this.setState((prevState, props) => ({ <br>
+              &nbsp counter: prevState.counter + props.increment <br>
+              }));
+            </code>
+          </div>
+          <p>We used an <a target=_blank href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow function</a> above, but it also works with regular functions:</p>
+          <div class="codeBlock">
+            <code>
+              // Correct <br>
+              this.setState(function(prevState, props) { <br>
+              &nbsp  return { <br>
+              &nbsp&nbsp    counter: prevState.counter + props.increment <br>
+              &nbsp  }; <br>
+              });
+            </code>
+          </div>
+            <h4>State Updates are Merged</h4>
             <p>When you call <code>setState()</code>, React merges the object you provide into the current state.</p>
             <p>For example, your state may contain several independent variables:</p>
-            <code>
-                constructor(props) { <br>
-                &nbsp  super(props); <br>
-                &nbsp  this.state = { <br>
-                &nbsp&nbsp    posts: [], <br>
-                &nbsp&nbsp    comments: [] <br>
-                &nbsp  }; <br>
-                }
-            </code>
+            <div class="codeBlock">
+              <code>
+                  constructor(props) { <br>
+                  &nbsp  super(props); <br>
+                  &nbsp  this.state = { <br>
+                  &nbsp&nbsp    posts: [], <br>
+                  &nbsp&nbsp    comments: [] <br>
+                  &nbsp  }; <br>
+                  }
+              </code>
+            </div>
             <p>Then you can update them independently with separate <code>setState()</code> calls:</p>
-            <code>
-                componentDidMount() { <br>
-            &nbsp      fetchPosts().then(response => { <br>
-            &nbsp&nbsp        this.setState({ <br>
-            &nbsp&nbsp&nbsp          posts: response.posts <br>
-            &nbsp&nbsp        }); <br>
-            &nbsp      }); <br><br>
-              
-            &nbsp      fetchComments().then(response => { <br>
-            &nbsp&nbsp         this.setState({ <br>
-            &nbsp&nbsp&nbsp          comments: response.comments <br>
-            &nbsp&nbsp        }); <br>
-            &nbsp      }); <br>
-                }
-            </code>
+            <div class="codeBlock">
+              <code>
+                  componentDidMount() { <br>
+              &nbsp      fetchPosts().then(response => { <br>
+              &nbsp&nbsp        this.setState({ <br>
+              &nbsp&nbsp&nbsp          posts: response.posts <br>
+              &nbsp&nbsp        }); <br>
+              &nbsp      }); <br><br>
+                
+              &nbsp      fetchComments().then(response => { <br>
+              &nbsp&nbsp         this.setState({ <br>
+              &nbsp&nbsp&nbsp          comments: response.comments <br>
+              &nbsp&nbsp        }); <br>
+              &nbsp      }); <br>
+                  }
+              </code>
+            </div>
             <p>The merging is shallow, so <code>this.setState({comments})</code> leaves <code>this.state.posts</code> intact, but completely replaces <code>this.state.comments</code>.</p>
-            <h2>The Data Flows Down</h2>
+            <h3>The Data Flows Down</h3>
             <p>Neither parent nor child components can know if a certain component is stateful or stateless, and they shouldn’t care whether it is defined as a function or a class.</p>
             <p>This is why state is often called local or encapsulated. It is not accessible to any component other than the one that owns and sets it.</p>
             <p>A component may choose to pass its state down as props to its child components:</p>
-            <code>
-                &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt
-            </code>
+            <div class="codeBlock">
+              <code>
+                  &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt
+              </code>
+            </div>
             <p>This also works for user-defined components:</p>
-            <code>
+            <div class="codeBlock">
+              <code>
                 &ltFormattedDate date={this.state.date} /&gt
-            </code>
+              </code>
+            </div>
             <p>The <code>FormattedDate</code> component would receive the <code>date</code> in its props and wouldn’t know whether it came from the <code>Clock</code>’s state, from the <code>Clock</code>’s props, or was typed by hand:</p>
-            <code>
-                function FormattedDate(props) { <br>
-                &nbsp  return &lth2&gtIt is {props.date.toLocaleTimeString()}.&lt/h2&gt; <br>
-                }
-            </code>
-            <a href="http://codepen.io/gaearon/pen/zKRqNB?editors=0010">Try it on CodePen</a>
+            <div class="codeBlock">
+              <code>
+                  function FormattedDate(props) { <br>
+                  &nbsp  return &lth2&gtIt is {props.date.toLocaleTimeString()}.&lt/h2&gt; <br>
+                  }
+              </code>
+            </div>
+            <a class="codepenAnchor" target=_blank href="http://codepen.io/gaearon/pen/zKRqNB?editors=0010">Try it on CodePen</a>
             <p>This is commonly called a “top-down” or “unidirectional” data flow. Any state is always owned by some specific component, and any data or UI derived from that state can only affect components “below” them in the tree.</p>
             <p>If you imagine a component tree as a waterfall of props, each component’s state is like an additional water source that joins it at an arbitrary point but also flows down.</p>
             <p>To show that all components are truly isolated, we can create an App component that renders three <code>&ltClock&gt</code>s:</p>
-            <code>
-                function App() { <br>
-            &nbsp      return ( <br>
-            &nbsp&nbsp        &ltdiv&gt <br>
-            &nbsp&nbsp&nbsp          &ltClock /&gt <br>
-            &nbsp&nbsp&nbsp          &ltClock /&gt <br>
-            &nbsp&nbsp&nbsp          &ltClock /&gt <br>
-            &nbsp&nbsp        &lt/div&gt <br>
-            &nbsp      ); <br>
-                } <br><br>
-                
-                ReactDOM.render( <br>
-            &nbsp      &ltApp /&gt, <br>
-            &nbsp      document.getElementById('root') <br>
-                );
-            </code>
-            <a href="http://codepen.io/gaearon/pen/vXdGmd?editors=0010">Try it on CodePen</a>
+            <div class="codeBlock">
+              <code>
+                  function App() { <br>
+              &nbsp      return ( <br>
+              &nbsp&nbsp        &ltdiv&gt <br>
+              &nbsp&nbsp&nbsp          &ltClock /&gt <br>
+              &nbsp&nbsp&nbsp          &ltClock /&gt <br>
+              &nbsp&nbsp&nbsp          &ltClock /&gt <br>
+              &nbsp&nbsp        &lt/div&gt <br>
+              &nbsp      ); <br>
+                  } <br><br>
+                  
+                  ReactDOM.render( <br>
+              &nbsp      &ltApp /&gt, <br>
+              &nbsp      document.getElementById('root') <br>
+                  );
+              </code>
+            </div>
+            <a class="codepenAnchor" target=_blank href="http://codepen.io/gaearon/pen/vXdGmd?editors=0010">Try it on CodePen</a>
             <p>Each <code>Clock</code> sets up its own timer and updates independently.</p>
             <p>In React apps, whether a component is stateful or stateless is considered an implementation detail of the component that may change over time. You can use stateless components inside stateful components, and vice versa.</p>
           </article>
