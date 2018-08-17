@@ -54,7 +54,7 @@
           <article>
             <p><em>Consider this variable declaration:</em></p>
             <div class="codeBlock">
-              <code>const element = &lth1&gtHello, world!&lt/h1&gt ;</code>
+              <code>const element = &lt;h1&gt;Hello, world!&lt;/h1&gt; ;</code>
             </div>
             <p>This funny tag syntax is neither a string nor HTML.</p>
             <p>It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.</p>
@@ -69,30 +69,30 @@
             <div class="codeBlock">
               <code>
                 const name = 'Josh Perez'; <br>
-                const element = &lth1&gtHello, {name}&lt/h1&gt ; <br>
+                const element = &lt;h1&gt;Hello, {name}&lt;/h1&gt; ; <br>
                 ReactDOM.render( <br>
-              &nbsp    element, <br>
-              &nbsp    document.getElementById('root') <br>
+              &nbsp;    element, <br>
+              &nbsp;    document.getElementById('root') <br>
                 );
               </code>
             </div>
             <p>You can put any valid <a target=_blank href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions">JavaScript expression</a> inside the curly braces in JSX. For example, <code>2 + 2</code>, <code>user.firstName</code>, or <code>formatName(user)</code> are all valid JavaScript expressions.</p>
-            <p>In the example below, we embed the result of calling a JavaScript function, <code>formatName(user)</code>, into an <code>&lth1&gt</code> element.</p>
+            <p>In the example below, we embed the result of calling a JavaScript function, <code>formatName(user)</code>, into an <code>&lt;h1&gt;</code> element.</p>
             <div class="codeBlock">
               <code>
                 function formatName(user) { <br>
-                &nbsp    return user.firstName + ' ' + <br> &nbsp user.lastName; <br>
+                &nbsp;    return user.firstName + ' ' + <br> &nbsp; user.lastName; <br>
                 }; <br>
                 const user = { <br>
-                &nbsp    firstName: 'Harper', <br>
-                &nbsp  lastName: 'Perez' <br>
+                &nbsp;    firstName: 'Harper', <br>
+                &nbsp;  lastName: 'Perez' <br>
                 }; <br>
                 const element = ( <br>
-                &nbsp    Hello, {formatName(user)}! <br>
+                &nbsp;    Hello, {formatName(user)}! <br>
                 ); <br>
                 ReactDOM.render( <br>
-                &nbsp  element, <br>
-                &nbsp  document.getElementById('root') <br>
+                &nbsp;  element, <br>
+                &nbsp;  document.getElementById('root') <br>
                 );
               </code>
             </div>
@@ -104,11 +104,11 @@
             <div class="codeBlock">
               <code>
                 function getGreeting(user) { <br>
-              &nbsp&nbsp    if (user) { <br>
-              &nbsp&nbsp&nbsp      return &lth1&gtHello,<br>
-              &nbsp&nbsp&nbsp      {formatName(user)}!&lt/h1&gt&#59 <br>
-              &nbsp&nbsp    } <br>
-              &nbsp    return &lth1&gtHello, Stranger.&lt/h1&gt&#59<br>
+              &nbsp;&nbsp;    if (user) { <br>
+              &nbsp;&nbsp;&nbsp;      return &lt;h1&gt;Hello,<br>
+              &nbsp;&nbsp;&nbsp;      {formatName(user)}!&lt;/h1&gt;&#59; <br>
+              &nbsp;&nbsp;    } <br>
+              &nbsp;    return &lt;h1&gt;Hello, Stranger.&lt;/h1&gt;&#59;<br>
                 }
               </code>
             </div>
@@ -116,12 +116,12 @@
             <p>You may use quotes to specify string literals as attributes:</p>
             <div class="codeBlock">
               <code>
-                const element = &ltdiv tabIndex="0"&gt&lt/div&gt&#59
+                const element = &lt;div tabIndex="0"&gt;&lt;/div&gt;&#59;
               </code>
             </div>
             <p>You may also use curly braces to embed a JavaScript expression in an attribute:</p>
             <div class=codeBlock>
-              <code>const element = &ltimg src={user.avatarUrl}&gt&lt/img&gt&#59</code>
+              <code>const element = &lt;img src={user.avatarUrl}&gt;&lt;/img&gt;&#59;</code>
             </div>
             <p>Don’t put quotes around curly braces when embedding a JavaScript expression in an attribute. You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.</p>
             <p class="note"><b>Warning:</b><br>
@@ -132,15 +132,15 @@
             <h3>Specifying Children with JSX</h3>
             <p>If a tag is empty, you may close it immediately with />, like XML:</p>
             <div class="codeBlock">
-              <code>const element = &ltimg src={user.avatarUrl} /&gt&#59</code>
+              <code>const element = &lt;img src={user.avatarUrl} /&gt;&#59;</code>
             </div>
             <p>JSX tags may contain children:</p>
             <div class="codeBlock">
               <code>const element = (<br>
-                &nbsp&ltdiv&gt <br>
-                    &nbsp&nbsp &lth1&gtHello!&lt/h1&gt <br>
-                    &nbsp&nbsp &lth2>Good to see you here.&lt/h2&gt <br>
-                &nbsp&lt/div&gt <br>
+                &nbsp;&lt;div&gt; <br>
+                    &nbsp;&nbsp; &lt;h1&gt;Hello!&lt;/h1&gt; <br>
+                    &nbsp;&nbsp; &lt;h2>Good to see you here.&lt;/h2&gt; <br>
+                &nbsp;&lt;/div&gt; <br>
               );
               </code>
             </div>
@@ -150,7 +150,7 @@
               <code>
                 const title = response.potentiallyMaliciousInput; <br>
                 // This is safe: <br>
-                const element = &lth1&gt{title}&lt/h1&gt&#59 <br>
+                const element = &lt;h1&gt;{title}&lt;/h1&gt;&#59; <br>
               </code>
             </div>
             <p>By default, React DOM <a target=_blank href="http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html">escapes</a> any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent <a target=_blank href="https://en.wikipedia.org/wiki/Cross-site_scripting"> XSS (cross-site-scripting)</a> attacks.</p>
@@ -160,18 +160,18 @@
             <div class="codeBlock">
               <code>
                 const element = ( <br>
-              &nbsp    &lth1 className="greeting"&gt <br>
-              &nbsp&nbsp      Hello, world! <br>
-              &nbsp    &lt/h1&gt <br>
+              &nbsp;    &lt;h1 className="greeting"&gt; <br>
+              &nbsp;&nbsp;      Hello, world! <br>
+              &nbsp;    &lt;/h1&gt; <br>
                 );
               </code>
             </div>
             <div style="margin-top:20px" class="codeBlock">
               <code>
                 const element = React.createElement( <br>
-              &nbsp    'h1', <br>
-              &nbsp&nbsp      {className: 'greeting'}, <br>
-              &nbsp    'Hello, world!' <br>
+              &nbsp;    'h1', <br>
+              &nbsp;&nbsp;      {className: 'greeting'}, <br>
+              &nbsp;    'Hello, world!' <br>
                 );
               </code>
             </div>
@@ -180,11 +180,11 @@
               <code>
                 // Note: this structure is simplified <br>
                 const element = { <br>
-              &nbsp    type: 'h1', <br>
-              &nbsp    props: { <br>
-                &nbsp&nbsp      className: 'greeting', <br>
-                &nbsp&nbsp      children: 'Hello, world!' <br>
-                &nbsp    } <br>
+              &nbsp;    type: 'h1', <br>
+              &nbsp;    props: { <br>
+                &nbsp;&nbsp;      className: 'greeting', <br>
+                &nbsp;&nbsp;      children: 'Hello, world!' <br>
+                &nbsp;    } <br>
                 };
               </code>
             </div>
@@ -203,17 +203,17 @@
             <p><em>Elements are the smallest building blocks of React apps.</em></p>
             <p>An element describes what you want to see on the screen:</p>
             <div class="codeBlock">
-              <code>const element = &lth1&gtHello, world&lt/h1&gt&#59</code>
+              <code>const element = &lt;h1&gt;Hello, world&lt;/h1&gt;&#59;</code>
             </div>
             <p>Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.</p>
             <p class="note"><b>Note:</b><br>
 
             One might confuse elements with a more widely known concept of “components”. We will introduce components in the <a href="#Components_and_Props">next section</a>. Elements are what components are “made of”, and we encourage you to read this section before jumping ahead.</p>
             <h3>Rendering an Element into the DOM</h3>
-            <p>Let’s say there is a <code>&ltdiv&gt</code> somewhere in your HTML file:</p>
+            <p>Let’s say there is a <code>&lt;div&gt;</code> somewhere in your HTML file:</p>
             <div class="codeBlock">
               <code>
-                &ltdiv id="root"&gt&lt/div&gt
+                &lt;div id="root"&gt;&lt;/div&gt;
               </code>
             </div>
             <p>We call this a “root” DOM node because everything inside it will be managed by React DOM.</p>
@@ -221,7 +221,7 @@
             <p>To render a React element into a root DOM node, pass both to <code>ReactDOM.render()</code>:</p>
             <div id="to_render" class="codeBlock">
               <code>
-                const element = &ltdiv&gtHello, world&lt/div&gt&#59 <br>
+                const element = &lt;div&gt;Hello, world&lt;/div&gt;&#59; <br>
                 ReactDOM.render(element, document.getElementById('root'));
               </code>
             </div>
@@ -234,13 +234,13 @@
             <div id="ticking_clock" class="codeBlock">
               <code>
                 function tick() { <br>
-              &nbsp    const element = ( <br>
-              &nbsp&nbsp        &ltdiv&gt <br>
-              &nbsp&nbsp&nbsp      &lth1&gtHello, world!&lt/h1&gt <br>
-              &nbsp&nbsp&nbsp      &lth2&gtIt is {new Date().toLocaleTimeString()}.&lt/h2&gt <br>
-              &nbsp&nbsp      &lt/div&gt <br>
-              &nbsp    ); <br>
-              &nbsp    ReactDOM.render(element, document.getElementById('root')); <br>
+              &nbsp;    const element = ( <br>
+              &nbsp;&nbsp;        &lt;div&gt; <br>
+              &nbsp;&nbsp;&nbsp;      &lt;h1&gt;Hello, world!&lt;/h1&gt; <br>
+              &nbsp;&nbsp;&nbsp;      &lt;h2&gt;It is {new Date().toLocaleTimeString()}.&lt;/h2&gt; <br>
+              &nbsp;&nbsp;      &lt;/div&gt; <br>
+              &nbsp;    ); <br>
+              &nbsp;    ReactDOM.render(element, document.getElementById('root')); <br>
                 } <br> <br>
                 
                 setInterval(tick, 1000);
@@ -256,7 +256,7 @@
             <h3>React Only Updates What’s Necessary</h3>
             <p>React DOM compares the element and its children to the previous one, and only applies the DOM updates necessary to bring the DOM to the desired state.</p>
             <p>You can verify by inspecting the <a target=_blank href="https://reactjs.org/redirect-to-codepen/rendering-elements/update-rendered-element">last example</a> with the browser tools:</p>
-            <img src="https://reactjs.org/granular-dom-updates-c158617ed7cc0eac8f58330e49e48224.gif">
+            <img src="https://reactjs.org/granular-dom-updates-c158617ed7cc0eac8f58330e49e48224.gif" alt="dom example image">
             <p>Even though we create an element describing the whole UI tree on every tick, only the text node whose contents has changed gets updated by React DOM.</p>
             <p>In our experience, thinking about how the UI should look at any given moment rather than how to change it over time eliminates a whole class of bugs.</p>
           </article>
@@ -270,7 +270,7 @@
             <p>The simplest way to define a component is to write a JavaScript function:</p>
             <div class="codeBlock">
               <code>function Welcome(props) { <br>
-              &nbsp  return &lth1&gtHello, {props.name}&lt/h1&gt&#59 <br>
+              &nbsp;  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;&#59; <br>
               }</code>
             </div>
             <p>This function is a valid React component because it accepts a single “props” (which stands for properties) object argument with data and returns a React element. We call such components “functional” because they are literally JavaScript functions.</p>
@@ -278,9 +278,9 @@
             <div class="codeBlock">
               <code>
                 class Welcome extends React.Component { <br>
-                  &nbsp render() { <br>
-                  &nbsp &nbsp return &lth1&gtHello, {this.props.name}&lt/h1&gt&#59 <br>
-                  &nbsp } <br>
+                  &nbsp; render() { <br>
+                  &nbsp; &nbsp; return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;&#59; <br>
+                  &nbsp; } <br>
                 }
               </code>
             </div>
@@ -289,37 +289,38 @@
             <h3>Rendering a Component</h3>
             <p>Previously, we only encountered React elements that represent DOM tags:</p>
             <div class="codeBlock">
-              <code>const element = &ltdiv /&gt&#59</code>
+              <code>const element = &lt;div /&gt;&#59;</code>
             </div>
             <p>However, elements can also represent user-defined components:</p>
             <div class="codeBlock">
-              <code>const element = &ltWelcome name="Sara" /&gt&#59</code>
+              <code>const element = &lt;Welcome name="Sara" /&gt;&#59;</code>
             </div>
             <p>When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object “props”.</p>
             <p>For example, this code renders “Hello, Sara” on the page:</p>
             <div class="codeBlock">
               <code>function Welcome(props) { <br>
-                &nbsp return &lth1&gtHello, {props.name}&lth1 /&gt&#59 <br>
+                &nbsp; return &lt;h1&gt;Hello, {props.name}&lt;h1 /&gt;&#59; <br>
               } <br> <br>
               
               const element = <Welcome name="Sara" />; <br>
               ReactDOM.render( <br>
-              &nbsp  element, <br>
-              &nbsp  document.getElementById('root') <br>
-              );</code>
+              &nbsp;  element, <br>
+              &nbsp;  document.getElementById('root') <br>
+              );
+              </code>
             </div>
             <a target=_blank class="codepenAnchor" href="https://reactjs.org/redirect-to-codepen/components-and-props/rendering-a-component">Try it on CodePen</a>
             <p>Let’s recap what happens in this example:</p>
             <ol>
-              <li>We call <code>ReactDOM.render()</code> with the <code>&ltWelcome name="Sara" /&gt</code> element.</li>
+              <li>We call <code>ReactDOM.render()</code> with the <code>&lt;Welcome name="Sara" /&gt;</code> element.</li>
               <li>React calls the <code>Welcome</code> component with <code>{name: 'Sara'}</code> as the props.</li>
-              <li>Our Welcome component returns a <code>&lth1&gtHello, Sara&lt/h1&gt</code> element as the result.</li>
-              <li>React DOM efficiently updates the DOM to match <code>&lth1&gtHello, Sara&lt/h1&gt.</code></li>
+              <li>Our Welcome component returns a <code>&lt;h1&gt;Hello, Sara&lt;/h1&gt;</code> element as the result.</li>
+              <li>React DOM efficiently updates the DOM to match <code>&lt;h1&gt;Hello, Sara&lt;/h1&gt;.</code></li>
             </ol>
             <p class="note">
               <b>Note: Always start component names with a capital letter.</b> <br>
 
-              React treats components starting with lowercase letters as DOM tags. For example, <code>&ltdiv /&gt</code> represents an HTML div tag, but <code>&ltWelcome /&gt</code> represents a component and requires <code>Welcome</code> to be in scope. <br><br>
+              React treats components starting with lowercase letters as DOM tags. For example, <code>&lt;div /&gt;</code> represents an HTML div tag, but <code>&lt;Welcome /&gt;</code> represents a component and requires <code>Welcome</code> to be in scope. <br><br>
 
               You can read more about the reasoning behind this convention <a target=_blank href="https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized">here</a>.
             </p>
@@ -329,22 +330,22 @@
             <div class="codeBlock">
               <code>
                 function Welcome(props) { <br>
-                &nbsp  return &lth1&gtHello, {props.name}&lt/h1&gt&#59 <br>
+                &nbsp;  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;&#59; <br>
                 }<br><br>
                 
                 function App() {<br>
-                &nbsp  return (<br>
-                &nbsp&nbsp    &ltdiv&gt<br>
-                &nbsp&nbsp&nbsp    &ltWelcome name="Sara" /&gt<br>
-                &nbsp&nbsp&nbsp    &ltWelcome name="Cahal" /&gt<br>
-                &nbsp&nbsp&nbsp    &ltWelcome name="Edite" /&gt<br>
-                &nbsp&nbsp    &lt/div&gt<br>
-                &nbsp  );<br>
+                &nbsp;  return (<br>
+                &nbsp;&nbsp;    &lt;div&gt;<br>
+                &nbsp;&nbsp;&nbsp;    &lt;Welcome name="Sara" /&gt;<br>
+                &nbsp;&nbsp;&nbsp;    &lt;Welcome name="Cahal" /&gt;<br>
+                &nbsp;&nbsp;&nbsp;    &lt;Welcome name="Edite" /&gt;<br>
+                &nbsp;&nbsp;    &lt;/div&gt;<br>
+                &nbsp;  );<br>
                 }<br><br>
                 
                 ReactDOM.render(<br>
-                &nbsp  &ltApp /&gt,<br>
-                &nbsp  document.getElementById('root')<br>
+                &nbsp;  &lt;App /&gt;,<br>
+                &nbsp;  document.getElementById('root')<br>
                 );
               </code>
             </div>
@@ -356,25 +357,25 @@
             <div class="codeBlock">
               <code>
                 function Comment(props) { <br>
-                  &nbsp return ( <br>
-                  &nbsp&nbsp  &ltdiv className="Comment"&gt <br>
-                  &nbsp&nbsp&nbsp    &ltdiv className="UserInfo"&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp      &ltimg className="Avatar" <br>
-                  &nbsp&nbsp&nbsp&nbsp&nbsp       src={props.author.avatarUrl} <br>
-                  &nbsp&nbsp&nbsp&nbsp&nbsp        alt={props.author.name} <br>
-                  &nbsp&nbsp&nbsp&nbsp      /&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp      &ltdiv className="UserInfo-name"&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp&nbsp        {props.author.name} <br>
-                  &nbsp&nbsp&nbsp&nbsp      &lt/div&gt <br>
-                  &nbsp&nbsp&nbsp    &lt/div&gt <br>
-                  &nbsp&nbsp&nbsp    &ltdiv className="Comment-text"&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp      {props.text} <br>
-                  &nbsp&nbsp&nbsp    &lt/div&gt <br>
-                  &nbsp&nbsp&nbsp    &ltdiv className="Comment-date"&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp      {formatDate(props.date)} <br>
-                  &nbsp&nbsp&nbsp    &lt/div&gt <br>
-                  &nbsp&nbsp  &lt/div&gt <br>
-                  &nbsp); <br>
+                  &nbsp; return ( <br>
+                  &nbsp;&nbsp;  &lt;div className="Comment"&gt; <br>
+                  &nbsp;&nbsp;&nbsp;    &lt;div className="UserInfo"&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;      &lt;img className="Avatar" <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       src={props.author.avatarUrl} <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        alt={props.author.name} <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;      /&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;      &lt;div className="UserInfo-name"&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        {props.author.name} <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;      &lt;/div&gt; <br>
+                  &nbsp;&nbsp;&nbsp;    &lt;/div&gt; <br>
+                  &nbsp;&nbsp;&nbsp;    &lt;div className="Comment-text"&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;      {props.text} <br>
+                  &nbsp;&nbsp;&nbsp;    &lt;/div&gt; <br>
+                  &nbsp;&nbsp;&nbsp;    &lt;div className="Comment-date"&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;      {formatDate(props.date)} <br>
+                  &nbsp;&nbsp;&nbsp;    &lt;/div&gt; <br>
+                  &nbsp;&nbsp;  &lt;/div&gt; <br>
+                  &nbsp;); <br>
                 }
               </code>
             </div>
@@ -384,13 +385,13 @@
             <div class="codeBlock">
               <code>
                 function Avatar(props) { <br>
-                &nbsp  return ( <br>
-                &nbsp&nbsp    &ltimg className="Avatar" <br>
-                &nbsp&nbsp&nbsp      src={props.user.avatarUrl} <br>
-                &nbsp&nbsp&nbsp     alt={props.user.name} <br>
-                &nbsp&nbsp   /&gt <br>
+                &nbsp;  return ( <br>
+                &nbsp;&nbsp;    &lt;img className="Avatar" <br>
+                &nbsp;&nbsp;&nbsp;      src={props.user.avatarUrl} <br>
+                &nbsp;&nbsp;&nbsp;     alt={props.user.name} <br>
+                &nbsp;&nbsp;   /&gt; <br>
                 
-                &nbsp ); <br>
+                &nbsp; ); <br>
                 }
               </code>
             </div>
@@ -401,37 +402,37 @@
             <div class="codeBlock">
               <code>
                 function Comment(props) { <br>
-                  &nbsp return ( <br>
-                  &nbsp&nbsp&nbsp  &ltdiv className="Comment"&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp    &ltdiv className="UserInfo"&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp&nbsp   &ltAvatar user={props.author} /&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp&nbsp      &ltdiv className="UserInfo-name"&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp        {props.author.name} <br>
-                  &nbsp&nbsp&nbsp&nbsp&nbsp      &lt/div&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp   &lt/div&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp    &ltdiv className="Comment-text"&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp&nbsp      {props.text} <br>
-                  &nbsp&nbsp&nbsp&nbsp    &lt/div&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp    &ltdiv className="Comment-date"&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp&nbsp     {formatDate(props.date)} <br>
-                  &nbsp&nbsp&nbsp&nbsp   &lt/div&gt <br>
-                  &nbsp&nbsp&nbsp  &lt/div&gt <br>
-                  &nbsp&nbsp); <br>
-                  &nbsp}
+                  &nbsp; return ( <br>
+                  &nbsp;&nbsp;&nbsp;  &lt;div className="Comment"&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;    &lt;div className="UserInfo"&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;Avatar user={props.author} /&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      &lt;div className="UserInfo-name"&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        {props.author.name} <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      &lt;/div&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;   &lt;/div&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;    &lt;div className="Comment-text"&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      {props.text} <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;    &lt;/div&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;    &lt;div className="Comment-date"&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     {formatDate(props.date)} <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;   &lt;/div&gt; <br>
+                  &nbsp;&nbsp;&nbsp;  &lt;/div&gt; <br>
+                  &nbsp;&nbsp;); <br>
+                  &nbsp;}
               </code>
             </div>
             <p>Next, we will extract a <code>UserInfo</code> component that renders an <code>Avatar</code> next to the user’s name:</p>
             <div class="codeBlock">
               <code>
                 function UserInfo(props) { <br>
-                &nbsp  return ( <br>
-                &nbsp&nbsp    &ltdiv className="UserInfo"&gt <br>
-                &nbsp&nbsp&nbsp      &ltAvatar user={props.user} /&gt <br>
-                &nbsp&nbsp&nbsp      &ltdiv className="UserInfo-name"&gt <br>
-                &nbsp&nbsp&nbsp&nbsp        {props.user.name} <br>
-                &nbsp&nbsp&nbsp      &lt/div&gt <br>
-                &nbsp&nbsp    &lt/div&gt <br>
-                &nbsp  ); <br>
+                &nbsp;  return ( <br>
+                &nbsp;&nbsp;    &lt;div className="UserInfo"&gt; <br>
+                &nbsp;&nbsp;&nbsp;      &lt;Avatar user={props.user} /&gt; <br>
+                &nbsp;&nbsp;&nbsp;      &lt;div className="UserInfo-name"&gt; <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;        {props.user.name} <br>
+                &nbsp;&nbsp;&nbsp;      &lt;/div&gt; <br>
+                &nbsp;&nbsp;    &lt;/div&gt; <br>
+                &nbsp;  ); <br>
                 }
               </code>
             </div>
@@ -439,17 +440,17 @@
             <div class="codeBlock">
               <code>
                 function Comment(props) { <br>
-                &nbsp  return ( <br>
-                &nbsp&nbsp    &ltdiv className="Comment"&gt <br>
-                &nbsp&nbsp&nbsp      &ltUserInfo user={props.author} /&gt <br>
-                &nbsp&nbsp&nbsp     &ltdiv className="Comment-text"&gt <br>
-                &nbsp&nbsp&nbsp&nbsp        {props.text} <br>
-                &nbsp&nbsp&nbsp     &lt/div&gt <br>
-                &nbsp&nbsp&nbsp      &ltdiv className="Comment-date"&gt <br>
-                &nbsp&nbsp&nbsp&nbsp        {formatDate(props.date)} <br>
-                &nbsp&nbsp&nbsp     &lt/div&gt <br>
-                &nbsp&nbsp   &lt/div&gt <br>
-                &nbsp ); <br>
+                &nbsp;  return ( <br>
+                &nbsp;&nbsp;    &lt;div className="Comment"&gt; <br>
+                &nbsp;&nbsp;&nbsp;      &lt;UserInfo user={props.author} /&gt; <br>
+                &nbsp;&nbsp;&nbsp;     &lt;div className="Comment-text"&gt; <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;        {props.text} <br>
+                &nbsp;&nbsp;&nbsp;     &lt;/div&gt; <br>
+                &nbsp;&nbsp;&nbsp;      &lt;div className="Comment-date"&gt; <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;        {formatDate(props.date)} <br>
+                &nbsp;&nbsp;&nbsp;     &lt;/div&gt; <br>
+                &nbsp;&nbsp;   &lt;/div&gt; <br>
+                &nbsp; ); <br>
                 } <br>
               </code>
             </div>
@@ -460,7 +461,7 @@
             <div class="codeBlock">
               <code>
                 function sum(a, b) { <br>
-                &nbsp return a + b; <br>
+                &nbsp; return a + b; <br>
               }
               </code>
             </div>
@@ -469,7 +470,7 @@
             <div class="codeBlock">
               <code>
                   function withdraw(account, amount) { <br>
-                  &nbsp  account.total -= amount; <br>
+                  &nbsp;  account.total -= amount; <br>
                   }
               </code>
             </div>
@@ -486,16 +487,16 @@
             <div class="codeBlock">
               <code>
                   function tick() { <br>
-                  &nbsp  const element = ( <br>
-                  &nbsp&nbsp    &ltdiv&gt <br>
-                  &nbsp&nbsp&nbsp      &lth1&gtHello, world!&lt/h1&gt <br>
-                  &nbsp&nbsp&nbsp      &lth2&gtIt is {new Date().toLocaleTimeString()}.&lt/h2&gt <br>
-                  &nbsp&nbsp    &lt/div&gt <br>
-                  &nbsp  ); <br>
-                  &nbsp&nbsp  ReactDOM.render( <br>
-                  &nbsp&nbsp&nbsp    element, <br>
-                  &nbsp&nbsp&nbsp    document.getElementById('root') <br>
-                  &nbsp  ); <br>
+                  &nbsp;  const element = ( <br>
+                  &nbsp;&nbsp;    &lt;div&gt; <br>
+                  &nbsp;&nbsp;&nbsp;      &lt;h1&gt;Hello, world!&lt;/h1&gt; <br>
+                  &nbsp;&nbsp;&nbsp;      &lt;h2&gt;It is {new Date().toLocaleTimeString()}.&lt;/h2&gt; <br>
+                  &nbsp;&nbsp;    &lt;/div&gt; <br>
+                  &nbsp;  ); <br>
+                  &nbsp;&nbsp;  ReactDOM.render( <br>
+                  &nbsp;&nbsp;&nbsp;    element, <br>
+                  &nbsp;&nbsp;&nbsp;    document.getElementById('root') <br>
+                  &nbsp;  ); <br>
                   } <br><br>
               
                   setInterval(tick, 1000);
@@ -507,19 +508,19 @@
             <div class="codeBlock">
               <code>
                 function Clock(props) { <br>
-              &nbsp    return ( <br>
-              &nbsp&nbsp      &ltdiv&gt <br>
-              &nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
-              &nbsp&nbsp&nbsp        &lth2&gtIt is {props.date.toLocaleTimeString()}.&lt/h2&gt <br>
-              &nbsp&nbsp      &lt/div&gt <br>
-              &nbsp    ); <br>
+              &nbsp;    return ( <br>
+              &nbsp;&nbsp;      &lt;div&gt; <br>
+              &nbsp;&nbsp;&nbsp;        &lt;h1&gt;Hello, world!&lt;/h1&gt; <br>
+              &nbsp;&nbsp;&nbsp;        &lt;h2&gt;It is {props.date.toLocaleTimeString()}.&lt;/h2&gt; <br>
+              &nbsp;&nbsp;      &lt;/div&gt; <br>
+              &nbsp;    ); <br>
                 } <br><br>
                 
               function tick() { <br>
-              &nbsp    ReactDOM.render( <br>
-              &nbsp&nbsp      &ltClock date={new Date()} /&gt, <br>
-              &nbsp&nbsp      document.getElementById('root') <br>
-              &nbsp    ); <br>
+              &nbsp;    ReactDOM.render( <br>
+              &nbsp;&nbsp;      &lt;Clock date={new Date()} /&gt;, <br>
+              &nbsp;&nbsp;      document.getElementById('root') <br>
+              &nbsp;    ); <br>
                 } <br><br>
                 
                 setInterval(tick, 1000);
@@ -531,8 +532,8 @@
             <div class="codeBlock">
               <code>
                   ReactDOM.render( <br>
-                  &nbsp  &ltClock /&gt, <br>
-                  &nbsp   document.getElementById('root') <br>
+                  &nbsp;  &lt;Clock /&gt;, <br>
+                  &nbsp;   document.getElementById('root') <br>
                   );
               </code>
             </div>
@@ -551,20 +552,20 @@
             <div class="codeBlock">
               <code>
                   class Clock extends React.Component { <br>
-                  &nbsp  render() { <br>
-                  &nbsp&nbsp    return ( <br>
-                  &nbsp&nbsp&nbsp      &ltdiv&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
-                  &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.props.date.toLocaleTimeString()}.&lt/h2&gt <br>
-                  &nbsp&nbsp&nbsp      &lt/div&gt <br>
-                  &nbsp&nbsp    ); <br>
-                  &nbsp  } <br>
+                  &nbsp;  render() { <br>
+                  &nbsp;&nbsp;    return ( <br>
+                  &nbsp;&nbsp;&nbsp;      &lt;div&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;        &lt;h1&gt;Hello, world!&lt;/h1&gt; <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;        &lt;h2&gt;It is {this.props.date.toLocaleTimeString()}.&lt;/h2&gt; <br>
+                  &nbsp;&nbsp;&nbsp;      &lt;/div&gt; <br>
+                  &nbsp;&nbsp;    ); <br>
+                  &nbsp;  } <br>
                   }
               </code>
             </div>
             <a class="codepenAnchor" target=_blank href="http://codepen.io/gaearon/pen/zKRGpo?editors=0010">Try it on CodePen</a>
             <p><code>Clock</code> is now defined as a class rather than a function.</p>
-            <p>The <code>render</code> method will be called each time an update happens, but as long as we render <code>&ltClock /&gt</code> into the same DOM node, only a single instance of the <code>Clock</code> class will be used. This lets us use additional features such as local state and lifecycle hooks.</p>
+            <p>The <code>render</code> method will be called each time an update happens, but as long as we render <code>&lt;Clock /&gt;</code> into the same DOM node, only a single instance of the <code>Clock</code> class will be used. This lets us use additional features such as local state and lifecycle hooks.</p>
             <h3>Adding Local State to a Class</h3>
             <p>We will move the <code>date</code> from props to state in three steps:</p>
             <ol>
@@ -573,14 +574,14 @@
             <div class="codeBlock">
               <code>
                 class Clock extends React.Component { <br>
-                &nbsp  render() { <br>
-                &nbsp&nbsp    return ( <br>
-                &nbsp&nbsp&nbsp      &ltdiv&gt <br>
-                &nbsp&nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
-                &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
-                &nbsp&nbsp&nbsp      &lt/div&gt <br>
-                &nbsp&nbsp    ); <br>
-                &nbsp  } <br>
+                &nbsp;  render() { <br>
+                &nbsp;&nbsp;    return ( <br>
+                &nbsp;&nbsp;&nbsp;      &lt;div&gt; <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;        &lt;h1&gt;Hello, world!&lt;/h1&gt; <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt; <br>
+                &nbsp;&nbsp;&nbsp;      &lt;/div&gt; <br>
+                &nbsp;&nbsp;    ); <br>
+                &nbsp;  } <br>
                 } <br>
               </code>
             </div>
@@ -590,19 +591,19 @@
             <div class="codeBlock">
               <code>
                 class Clock extends React.Component { <br>
-                &nbsp    constructor(props) { <br>
-                &nbsp&nbsp    super(props); <br>
-                &nbsp&nbsp      this.state = {date: new Date()}; <br>
-                &nbsp    } <br><br>
+                &nbsp;    constructor(props) { <br>
+                &nbsp;&nbsp;    super(props); <br>
+                &nbsp;&nbsp;      this.state = {date: new Date()}; <br>
+                &nbsp;    } <br><br>
                 
-                &nbsp  render() { <br>
-                &nbsp&nbsp      return ( <br>
-                &nbsp&nbsp&nbsp      &ltdiv&gt <br>
-                &nbsp&nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
-                &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
-                &nbsp&nbsp&nbsp      &lt/div&gt <br>
-                &nbsp&nbsp    ); <br>
-                &nbsp  } <br>
+                &nbsp;  render() { <br>
+                &nbsp;&nbsp;      return ( <br>
+                &nbsp;&nbsp;&nbsp;      &lt;div&gt; <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;        &lt;h1&gt;Hello, world!&lt;/h1&gt; <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt; <br>
+                &nbsp;&nbsp;&nbsp;      &lt;/div&gt; <br>
+                &nbsp;&nbsp;    ); <br>
+                &nbsp;  } <br>
                 }
               </code>
             </div>
@@ -610,20 +611,20 @@
             <div class="codeBlock">
               <code>
                 constructor(props) { <br>
-                &nbsp  super(props); <br>
-                &nbsp  this.state = {date: new Date()}; <br>
+                &nbsp;  super(props); <br>
+                &nbsp;  this.state = {date: new Date()}; <br>
                 }
               </code>
             </div>
             <p>Class components should always call the base constructor with <code>props</code>.</p>
             <ol start="3">
-              <li>Remove the date <code>prop</code> from the <code>&ltClock /&gt</code> element:</li>
+              <li>Remove the date <code>prop</code> from the <code>&lt;Clock /&gt;</code> element:</li>
             </ol>
             <div class="codeBlock">
               <code>
                 ReactDOM.render( <br>
-              &nbsp    &ltClock /&gt, <br>
-              &nbsp    document.getElementById('root') <br>
+              &nbsp;    &lt;Clock /&gt;, <br>
+              &nbsp;    document.getElementById('root') <br>
                 );
               </code>
             </div>
@@ -632,24 +633,24 @@
             <div class="codeBlock">
               <code>
                 class Clock extends React.Component { <br>
-              &nbsp    constructor(props) { <br>
-              &nbsp&nbsp      super(props); <br>
-              &nbsp&nbsp      this.state = {date: new Date()}; <br>
-              &nbsp    } <br>
+              &nbsp;    constructor(props) { <br>
+              &nbsp;&nbsp;      super(props); <br>
+              &nbsp;&nbsp;      this.state = {date: new Date()}; <br>
+              &nbsp;    } <br>
               
-              &nbsp  render() { <br>
-              &nbsp&nbsp    return ( <br>
-              &nbsp&nbsp&nbsp      &ltdiv&gt <br>
-              &nbsp&nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
-              &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
-              &nbsp&nbsp&nbsp      &lt/div&gt <br>
-              &nbsp&nbsp    ); <br>
-              &nbsp } <br>
+              &nbsp;  render() { <br>
+              &nbsp;&nbsp;    return ( <br>
+              &nbsp;&nbsp;&nbsp;      &lt;div&gt; <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;        &lt;h1&gt;Hello, world!&lt;/h1&gt; <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt; <br>
+              &nbsp;&nbsp;&nbsp;      &lt;/div&gt; <br>
+              &nbsp;&nbsp;    ); <br>
+              &nbsp; } <br>
               } <br><br>
               
               ReactDOM.render( <br>
-              &nbsp  &ltClock /&gt, <br>
-              &nbsp  document.getElementById('root') <br>
+              &nbsp;  &lt;Clock /&gt;, <br>
+              &nbsp;  document.getElementById('root') <br>
               );
             </code>
           </div>
@@ -663,27 +664,27 @@
           <div class="codeBlock">
             <code>
               class Clock extends React.Component { <br>
-              &nbsp  constructor(props) { <br>
-              &nbsp&nbsp    super(props); <br>
-              &nbsp&nbsp    this.state = {date: new Date()}; <br>
-              &nbsp  } <br> <br>
+              &nbsp;  constructor(props) { <br>
+              &nbsp;&nbsp;    super(props); <br>
+              &nbsp;&nbsp;    this.state = {date: new Date()}; <br>
+              &nbsp;  } <br> <br>
               
-              &nbsp  componentDidMount() { <br><br>
+              &nbsp;  componentDidMount() { <br><br>
               
-              &nbsp  } <br><br>
+              &nbsp;  } <br><br>
               
-              &nbsp  componentWillUnmount() {  <br><br>
+              &nbsp;  componentWillUnmount() {  <br><br>
               
-              &nbsp  } <br><br>
+              &nbsp;  } <br><br>
               
-              &nbsp  render() { <br>
-              &nbsp&nbsp    return ( <br>
-              &nbsp&nbsp&nbsp      &ltdiv&gt <br>
-              &nbsp&nbsp&nbsp&nbsp        &lth1&gtHello, world!&lt/h1&gt <br>
-              &nbsp&nbsp&nbsp&nbsp        &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
-              &nbsp&nbsp&nbsp      &lt/div&gt <br>
-              &nbsp&nbsp    ); <br>
-              &nbsp  } <br>
+              &nbsp;  render() { <br>
+              &nbsp;&nbsp;    return ( <br>
+              &nbsp;&nbsp;&nbsp;      &lt;div&gt; <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;        &lt;h1&gt;Hello, world!&lt;/h1&gt; <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt; <br>
+              &nbsp;&nbsp;&nbsp;      &lt;/div&gt; <br>
+              &nbsp;&nbsp;    ); <br>
+              &nbsp;  } <br>
               }
             </code>
           </div>
@@ -692,10 +693,10 @@
           <div class="codeBlock">
             <code>
                 componentDidMount() { <br>
-                &nbsp  this.timerID = setInterval( <br>
-                &nbsp&nbsp    () => this.tick(), <br>
-                &nbsp&nbsp    1000 <br>
-                &nbsp); <br>
+                &nbsp;  this.timerID = setInterval( <br>
+                &nbsp;&nbsp;    () => this.tick(), <br>
+                &nbsp;&nbsp;    1000 <br>
+                &nbsp;); <br>
                 }
             </code>
           </div>
@@ -705,7 +706,7 @@
           <div class="codeBlock">
             <code>
                 componentWillUnmount() { <br>
-                &nbsp  clearInterval(this.timerID); <br>
+                &nbsp;  clearInterval(this.timerID); <br>
                 }
             </code>
           </div>  
@@ -714,41 +715,41 @@
           <div class="codeBlock">
             <code>
                 class Clock extends React.Component { <br>
-                &nbsp  constructor(props) { <br>
-                  &nbsp&nbsp    super(props); <br>
-                  &nbsp&nbsp  this.state = {date: new Date()}; <br>
-                &nbsp  } <br><br>
+                &nbsp;  constructor(props) { <br>
+                  &nbsp;&nbsp;    super(props); <br>
+                  &nbsp;&nbsp;  this.state = {date: new Date()}; <br>
+                &nbsp;  } <br><br>
                 
-                &nbsp  componentDidMount() { <br>
-                &nbsp&nbsp    this.timerID = setInterval( <br>
-                &nbsp&nbsp&nbsp      () => this.tick(), <br>
-                &nbsp&nbsp&nbsp      1000 <br>
-                &nbsp&nbsp    ); <br>
-                &nbsp  } <br><br>
+                &nbsp;  componentDidMount() { <br>
+                &nbsp;&nbsp;    this.timerID = setInterval( <br>
+                &nbsp;&nbsp;&nbsp;      () => this.tick(), <br>
+                &nbsp;&nbsp;&nbsp;      1000 <br>
+                &nbsp;&nbsp;    ); <br>
+                &nbsp;  } <br><br>
                 
-                &nbsp  componentWillUnmount() { <br>
-                  &nbsp&nbsp    clearInterval(this.timerID); <br>
-                  &nbsp  } <br><br>
+                &nbsp;  componentWillUnmount() { <br>
+                  &nbsp;&nbsp;    clearInterval(this.timerID); <br>
+                  &nbsp;  } <br><br>
                 
-                  &nbsp  tick() { <br>
-                    &nbsp&nbsp  this.setState({ <br>
-                    &nbsp&nbsp&nbsp    date: new Date() <br>
-                    &nbsp&nbsp  }); <br>
-                    &nbsp&nbsp} <br><br>
+                  &nbsp;  tick() { <br>
+                    &nbsp;&nbsp;  this.setState({ <br>
+                    &nbsp;&nbsp;&nbsp;    date: new Date() <br>
+                    &nbsp;&nbsp;  }); <br>
+                    &nbsp;&nbsp;} <br><br>
                 
-                        &nbsp render() { <br>
-                        &nbsp&nbsp  return ( <br>
-                        &nbsp&nbsp&nbsp  &ltdiv&gt <br>
-                        &nbsp&nbsp&nbsp&nbsp      &lth1&gtHello, world!&lt/h1&gt <br>
-                        &nbsp&nbsp&nbsp&nbsp    &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt <br>
-                        &nbsp&nbsp&nbsp  &lt/div&gt <br>
-                        &nbsp&nbsp  ); <br>
-                        &nbsp } <br>
+                        &nbsp; render() { <br>
+                        &nbsp;&nbsp;  return ( <br>
+                        &nbsp;&nbsp;&nbsp;  &lt;div&gt; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;      &lt;h1&gt;Hello, world!&lt;/h1&gt; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;    &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt; <br>
+                        &nbsp;&nbsp;&nbsp;  &lt;/div&gt; <br>
+                        &nbsp;&nbsp;  ); <br>
+                        &nbsp; } <br>
                          } <br><br>
                 
                 ReactDOM.render( <br>
-                &nbsp  &ltClock /&gt, <br>
-                &nbsp  document.getElementById('root') <br>
+                &nbsp;  &lt;Clock /&gt;, <br>
+                &nbsp;  document.getElementById('root') <br>
                 );
             </code>
           </div>  
@@ -756,7 +757,7 @@
           <p>Now the clock ticks every second.</p>
           <p>Let’s quickly recap what’s going on and the order in which the methods are called:</p>
           <ol>
-            <li>When <code>&ltClock /&gt</code> is passed to <code>ReactDOM.render()</code>, React calls the constructor of the <code>Clock</code> component. Since Clock needs to display the current time, it initializes <code>this.state</code> with an object including the current time. We will later update this state.</li>
+            <li>When <code>&lt;Clock /&gt;</code> is passed to <code>ReactDOM.render()</code>, React calls the constructor of the <code>Clock</code> component. Since Clock needs to display the current time, it initializes <code>this.state</code> with an object including the current time. We will later update this state.</li>
             <li>
               React then calls the <code>Clock</code> component’s render() method. This is how React learns what should be displayed on the screen. React then updates the DOM to match the <code>Clock</code>’s render output.
             </li>
@@ -796,7 +797,7 @@ this.setState({comment: 'Hello'});
             <code>
               // Wrong <br>
               this.setState({ <br>
-              &nbsp counter: this.state.counter + this.props.increment, <br>
+              &nbsp; counter: this.state.counter + this.props.increment, <br>
               });
             </code>
           </div>
@@ -805,7 +806,7 @@ this.setState({comment: 'Hello'});
             <code>
               // Correct <br>
               this.setState((prevState, props) => ({ <br>
-              &nbsp counter: prevState.counter + props.increment <br>
+              &nbsp; counter: prevState.counter + props.increment <br>
               }));
             </code>
           </div>
@@ -814,9 +815,9 @@ this.setState({comment: 'Hello'});
             <code>
               // Correct <br>
               this.setState(function(prevState, props) { <br>
-              &nbsp  return { <br>
-              &nbsp&nbsp    counter: prevState.counter + props.increment <br>
-              &nbsp  }; <br>
+              &nbsp;  return { <br>
+              &nbsp;&nbsp;    counter: prevState.counter + props.increment <br>
+              &nbsp;  }; <br>
               });
             </code>
           </div>
@@ -826,11 +827,11 @@ this.setState({comment: 'Hello'});
             <div class="codeBlock">
               <code>
                   constructor(props) { <br>
-                  &nbsp  super(props); <br>
-                  &nbsp  this.state = { <br>
-                  &nbsp&nbsp    posts: [], <br>
-                  &nbsp&nbsp    comments: [] <br>
-                  &nbsp  }; <br>
+                  &nbsp;  super(props); <br>
+                  &nbsp;  this.state = { <br>
+                  &nbsp;&nbsp;    posts: [], <br>
+                  &nbsp;&nbsp;    comments: [] <br>
+                  &nbsp;  }; <br>
                   }
               </code>
             </div>
@@ -838,17 +839,17 @@ this.setState({comment: 'Hello'});
             <div class="codeBlock">
               <code>
                   componentDidMount() { <br>
-              &nbsp      fetchPosts().then(response => { <br>
-              &nbsp&nbsp        this.setState({ <br>
-              &nbsp&nbsp&nbsp          posts: response.posts <br>
-              &nbsp&nbsp        }); <br>
-              &nbsp      }); <br><br>
+              &nbsp;      fetchPosts().then(response => { <br>
+              &nbsp;&nbsp;        this.setState({ <br>
+              &nbsp;&nbsp;&nbsp;          posts: response.posts <br>
+              &nbsp;&nbsp;        }); <br>
+              &nbsp;      }); <br><br>
                 
-              &nbsp      fetchComments().then(response => { <br>
-              &nbsp&nbsp         this.setState({ <br>
-              &nbsp&nbsp&nbsp          comments: response.comments <br>
-              &nbsp&nbsp        }); <br>
-              &nbsp      }); <br>
+              &nbsp;      fetchComments().then(response => { <br>
+              &nbsp;&nbsp;         this.setState({ <br>
+              &nbsp;&nbsp;&nbsp;          comments: response.comments <br>
+              &nbsp;&nbsp;        }); <br>
+              &nbsp;      }); <br>
                   }
               </code>
             </div>
@@ -859,42 +860,42 @@ this.setState({comment: 'Hello'});
             <p>A component may choose to pass its state down as props to its child components:</p>
             <div class="codeBlock">
               <code>
-                  &lth2&gtIt is {this.state.date.toLocaleTimeString()}.&lt/h2&gt
+                  &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt;
               </code>
             </div>
             <p>This also works for user-defined components:</p>
             <div class="codeBlock">
               <code>
-                &ltFormattedDate date={this.state.date} /&gt
+                &lt;FormattedDate date={this.state.date} /&gt;
               </code>
             </div>
             <p>The <code>FormattedDate</code> component would receive the <code>date</code> in its props and wouldn’t know whether it came from the <code>Clock</code>’s state, from the <code>Clock</code>’s props, or was typed by hand:</p>
             <div class="codeBlock">
               <code>
                   function FormattedDate(props) { <br>
-                  &nbsp  return &lth2&gtIt is {props.date.toLocaleTimeString()}.&lt/h2&gt; <br>
+                  &nbsp;  return &lt;h2&gt;It is {props.date.toLocaleTimeString()}.&lt;/h2&gt;; <br>
                   }
               </code>
             </div>
             <a class="codepenAnchor" target=_blank href="http://codepen.io/gaearon/pen/zKRqNB?editors=0010">Try it on CodePen</a>
             <p>This is commonly called a “top-down” or “unidirectional” data flow. Any state is always owned by some specific component, and any data or UI derived from that state can only affect components “below” them in the tree.</p>
             <p>If you imagine a component tree as a waterfall of props, each component’s state is like an additional water source that joins it at an arbitrary point but also flows down.</p>
-            <p>To show that all components are truly isolated, we can create an App component that renders three <code>&ltClock&gt</code>`s:</p>
+            <p>To show that all components are truly isolated, we can create an App component that renders three <code>&lt;Clock&gt;</code>`s:</p>
             <div class="codeBlock">
               <code>
                   function App() { <br>
-              &nbsp      return ( <br>
-              &nbsp&nbsp        &ltdiv&gt <br>
-              &nbsp&nbsp&nbsp          &ltClock /&gt <br>
-              &nbsp&nbsp&nbsp          &ltClock /&gt <br>
-              &nbsp&nbsp&nbsp          &ltClock /&gt <br>
-              &nbsp&nbsp        &lt/div&gt <br>
-              &nbsp      ); <br>
+              &nbsp;      return ( <br>
+              &nbsp;&nbsp;        &lt;div&gt; <br>
+              &nbsp;&nbsp;&nbsp;          &lt;Clock /&gt; <br>
+              &nbsp;&nbsp;&nbsp;          &lt;Clock /&gt; <br>
+              &nbsp;&nbsp;&nbsp;          &lt;Clock /&gt; <br>
+              &nbsp;&nbsp;        &lt;/div&gt; <br>
+              &nbsp;      ); <br>
                   } <br><br>
                   
                   ReactDOM.render( <br>
-              &nbsp      &ltApp /&gt, <br>
-              &nbsp      document.getElementById('root') <br>
+              &nbsp;      &lt;App /&gt;, <br>
+              &nbsp;      document.getElementById('root') <br>
                   );
               </code>
             </div>
