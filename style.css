@@ -19,17 +19,16 @@ a:hover {
   font-weight: bold;
 }
 
-.topOfThePage {
+.logo {
   height: 30px;
   width: 100%;
   text-align: center;
   color: white;
   background: #4c5b75;
   overflow: hidden;
-  z-index: 9999;
 }
 
-.topOfThePage p {
+.logo p {
   margin: 3px 0 0 0;
   font-size: 1.3em;
 }
@@ -72,39 +71,6 @@ section h1 {
   border-left: 5px solid grey;
 }
 
-section h3 {
-  margin: 25px 0 0 0;
-  padding-top: 35px;
-  text-align: center;
-  border-top: 0.1px solid #bec1c6;
-}
-
-section h4 {
-  margin: 25px 0 0 0;
-  text-align: center;
-}
-
-section p {
-  margin: 25px 10px 0 10px;
-  text-align: justify;
-}
-
-section a {
-  display: auto;
-  margin: auto;
-  font-size: auto;
-  font-weight: auto;
-  background: rgba(225, 231, 242, 0.5);
-}
-
-section code {
-  font-size: .8em;
-}
-
-section img {
-  margin: 20px 10px 0 10px;
-}
-
 section article .codepenAnchor {
   display: inline-block;
   margin: 25px 0 0 25px;
@@ -121,14 +87,47 @@ section article ol li {
   margin: 20px 0 0 0;
 }
 
-.codeBlock {
+section article h3 {
+  margin: 25px 0 0 0;
+  padding-top: 35px;
+  text-align: center;
+  border-top: 0.1px solid #bec1c6;
+}
+
+section article h4 {
+  margin: 25px 0 0 0;
+  text-align: center;
+}
+
+section article p {
+  margin: 25px 10px 0 10px;
+  text-align: justify;
+}
+
+section article a {
+  display: auto;
+  margin: auto;
+  font-size: auto;
+  font-weight: auto;
+  background: rgba(225, 231, 242, 0.5);
+}
+
+section code {
+  font-size: .8em;
+}
+
+section img {
+  margin: 20px 10px 0 10px;
+}
+
+section .codeBlock {
   margin: 25px 0 0 0;
   padding: 8px 8px 8px 25px;
   color: white;
   background: #4c5b75;
 }
 
-.note {
+section .note {
   padding: 3px;
   background: rgba(255, 246, 221, 0.6);
   border: 1px solid rgba(173, 65, 43, 0.12);
@@ -140,7 +139,7 @@ footer {
 }
 
 @media screen and (min-width: 700px) {
-  .topOfThePage {
+  .logo {
     width: calc(75%);
   }
   #navbar {
@@ -180,6 +179,12 @@ footer {
   }
   #main-doc ol {
     margin: 20px 25px 0 25px;
+  }
+  footer {
+    float: left;
+    width: 75%;
+    text-align: center;
+    border-top: 0.1px solid #bec1c6;
   }
 }
 /*# sourceMappingURL=style.css.map */
