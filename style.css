@@ -6,18 +6,48 @@ body {
   margin: 0;
 }
 
+#wrapper {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
   color: inherit;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+.topOfThePage {
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  background: #4c5b75;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.topOfThePage p {
+  margin: 3px 0 0 0;
+  font-size: 1.3em;
 }
 
 #header {
   text-align: center;
 }
 
+#navbar {
+  z-index: 3;
+}
+
+#navbar h1 {
+  margin: 35px 10px 0 10px;
+}
+
 #navbar ul {
-  margin: 15px auto;
-  margin-bottom: 35px;
+  margin: 15px auto 0 auto;
   width: 65%;
   overflow: hidden;
   border-top: 1px solid black;
@@ -26,29 +56,36 @@ a {
 
 #navbar li {
   list-style: circle;
-  margin: 5px 0;
+  margin: 10px 0;
   font-weight: 400;
 }
 
+#navbar li:hover {
+  font-weight: bold;
+}
+
 section h1 {
-  margin: 20px 0;
+  margin: 60px 0 0 0;
+  padding: 10px 0;
   text-align: center;
   background: #e1e7f2;
   border-left: 5px solid grey;
 }
 
 section h3 {
+  margin: 25px 0 0 0;
   padding-top: 35px;
   text-align: center;
   border-top: 0.1px solid #bec1c6;
 }
 
 section h4 {
+  margin: 25px 0 0 0;
   text-align: center;
 }
 
 section p {
-  margin: 8px 10px;
+  margin: 25px 10px 0 10px;
   text-align: justify;
 }
 
@@ -57,23 +94,35 @@ section a {
   margin: auto;
   font-size: auto;
   font-weight: auto;
-  background: rgba(225, 231, 242, 0.8);
+  background: rgba(225, 231, 242, 0.5);
+}
+
+section code {
+  font-size: .8em;
+}
+
+section img {
+  margin-top: 20px;
 }
 
 section article .codepenAnchor {
   display: inline-block;
-  margin: 15px;
+  margin: 25px 0 0 25px;
   font-size: 0.9em;
   font-weight: bold;
-  background: rgba(225, 231, 242, 0.8);
+  background: rgba(225, 231, 242, 0.5);
+}
+
+section article ol {
+  margin: 0;
 }
 
 section article ol li {
-  margin: 5px 0;
+  margin: 20px 0 0 0;
 }
 
 .codeBlock {
-  margin: 10px 0;
+  margin: 25px 0 0 0;
   padding: 8px 8px 8px 25px;
   color: white;
   background: #4c5b75;
@@ -85,7 +134,15 @@ section article ol li {
   border: 1px solid rgba(173, 65, 43, 0.12);
 }
 
+footer {
+  margin: 25px 0 0 0;
+  height: 10px;
+}
+
 @media screen and (min-width: 700px) {
+  .topOfThePage {
+    width: calc(75%);
+  }
   #navbar {
     position: fixed;
     right: 0;
@@ -105,15 +162,18 @@ section article ol li {
     margin: 40px 0;
     font-size: 1.1em;
   }
-  #navbar li:hover {
-    font-weight: bold;
-  }
   #main-doc {
     float: left;
     width: 75%;
   }
   #main-doc p {
-    margin: 8px 15px;
+    margin: 25px 35px 0 35px;
+  }
+  #main-doc .codeBlock {
+    padding-left: 50px;
+  }
+  #main-doc .codepenAnchor {
+    margin-left: 50px;
   }
 }
 /*# sourceMappingURL=style.css.map */

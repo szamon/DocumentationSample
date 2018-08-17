@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./normalize.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
+    <title>React Technical Documentation Sample</title>
+  </head>
   <body>
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <link rel="stylesheet" type="text/css" href="./normalize.css">
-      <link rel="stylesheet" type="text/css" href="./style.css">
-      <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
-      <title>React Technical Documentation Sample</title>
-    </head>
     <div id="wrapper">
+      <div class="topOfThePage">
+        <p>React Technical Documentation Sample</p>
+      </div>
       <nav id="navbar">
         <header id="header">
-          <h1>React Technical Documentation Sample Menu</h1>
+          <h1>Menu</h1>
         </header>
           <ul>
             <li><a href="#Hello_World!">Hello World!</a></li>
@@ -41,7 +44,7 @@
             <p>Every chapter in this guide builds on the knowledge introduced in earlier chapters. <b>You can learn most of React by reading the “Main Concepts” guide chapters in the order they appear in the topic list.</b> For example, <a href="#Introducing_JSX">“Introducing JSX”</a> is the next chapter after this one.</p>
             <h3>Knowledge Level Assumptions</h3>
             <p>React is a JavaScript library, and so we’ll assume you have a basic understanding of the JavaScript language. <b>If you don’t feel very confident, we recommend going through a <a target=_blank href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript">JavaScript tutorial</a></b> to check your knowledge level and enable you to follow along this guide without getting lost. It might take you between 30 minutes and an hour, but as a result you won’t have to feel like you’re learning both React and JavaScript at the same time.</p>
-            <p class="note"><b>Note</b><br>This guide occasionally uses some of the newer JavaScript syntax in the examples. If you haven’t worked with JavaScript in the last few years, <a target=_blank href="https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c">these three points</a should get you most of the way.</p>
+            <p class="note"><b>Note</b><br>This guide occasionally uses some of the newer JavaScript syntax in the examples. If you haven’t worked with JavaScript in the last few years, <a target=_blank href="https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c">these three points</a> should get you most of the way.</p>
             <h3>Let’s Get Started!</h3>
             <p>Keep scrolling down, and you’ll find the link to the <a href="#Introducing_JSX">next chapter</a> of this guide right before the website footer.</p>
           </article>
@@ -316,7 +319,7 @@
             <p class="note">
               <b>Note: Always start component names with a capital letter.</b> <br>
 
-              React treats components starting with lowercase letters as DOM tags. For example, &ltdiv /&gt represents an HTML div tag, but &ltWelcome /&gt represents a component and requires Welcome to be in scope. <br><br>
+              React treats components starting with lowercase letters as DOM tags. For example, <code>&ltdiv /&gt</code> represents an HTML div tag, but <code>&ltWelcome /&gt</code> represents a component and requires <code>Welcome</code> to be in scope. <br><br>
 
               You can read more about the reasoning behind this convention <a target=_blank href="https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized">here</a>.
             </p>
@@ -490,8 +493,8 @@
                   &nbsp&nbsp    &lt/div&gt <br>
                   &nbsp  ); <br>
                   &nbsp&nbsp  ReactDOM.render( <br>
-                  &nbsp&nbsp    element, <br>
-                  &nbsp&nbsp    document.getElementById('root') <br>
+                  &nbsp&nbsp&nbsp    element, <br>
+                  &nbsp&nbsp&nbsp    document.getElementById('root') <br>
                   &nbsp  ); <br>
                   } <br><br>
               
@@ -777,7 +780,7 @@
   this.state.comment = 'Hello';
             </code>
           </div>    
-            <p>Instead, use setState():</p>
+            <p>Instead, use <code>setState()</code>:</p>
           <div class="codeBlock">
             <code>
             // Correct <br>
@@ -794,7 +797,7 @@ this.setState({comment: 'Hello'});
               // Wrong <br>
               this.setState({ <br>
               &nbsp counter: this.state.counter + this.props.increment, <br>
-              );
+              });
             </code>
           </div>
           <p>To fix it, use a second form of <code>setState()</code> that accepts a function rather than an object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:</p>
@@ -876,7 +879,7 @@ this.setState({comment: 'Hello'});
             <a class="codepenAnchor" target=_blank href="http://codepen.io/gaearon/pen/zKRqNB?editors=0010">Try it on CodePen</a>
             <p>This is commonly called a “top-down” or “unidirectional” data flow. Any state is always owned by some specific component, and any data or UI derived from that state can only affect components “below” them in the tree.</p>
             <p>If you imagine a component tree as a waterfall of props, each component’s state is like an additional water source that joins it at an arbitrary point but also flows down.</p>
-            <p>To show that all components are truly isolated, we can create an App component that renders three <code>&ltClock&gt</code>s:</p>
+            <p>To show that all components are truly isolated, we can create an App component that renders three <code>&ltClock&gt</code>`s:</p>
             <div class="codeBlock">
               <code>
                   function App() { <br>
@@ -901,6 +904,7 @@ this.setState({comment: 'Hello'});
           </article>
         </section>
       </main>
+      <footer></footer>
     </div>
   </body>
 </html>
