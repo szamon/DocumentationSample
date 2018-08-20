@@ -8,6 +8,7 @@ body {
 
 #wrapper {
   overflow: hidden;
+  z-index: 1;
 }
 
 a {
@@ -26,11 +27,77 @@ a:hover {
   color: white;
   background: #4c5b75;
   overflow: hidden;
+  z-index: 99999;
 }
 
 .logo p {
   margin: 3px 0 0 0;
   font-size: 1.3em;
+}
+
+.mobileMenuButton {
+  position: fixed;
+  top: 500px;
+  right: 15px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  background: #4c5b75;
+  border: 1px solid white;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  -webkit-transition: .4s;
+  transition: .4s;
+  z-index: 99999;
+}
+
+.mobileMenuButtonOpen {
+  background: white;
+  color: #4c5b75;
+  border: 1px solid #4c5b75;
+}
+
+.mobileMenu {
+  position: fixed;
+  left: 0;
+  bottom: -2000px;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0;
+  color: white;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 5%;
+  background: rgba(76, 91, 117, 0.9);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.mobileMenu h1 {
+  margin: 200px 0 0 0;
+}
+
+.mobileMenu ul {
+  margin: 0;
+  padding: 0;
+}
+
+.mobileMenu ul li {
+  margin: 15px 0 0 0;
+  list-style: none;
+}
+
+.mobileMenu ul li:hover {
+  font-weight: 600;
+}
+
+.mobileMenuOpen {
+  left: calc(50% - 150px);
+  bottom: calc(50% - 150px);
+  left: 0;
+  bottom: 0;
+  opacity: 1;
 }
 
 #header {
@@ -57,10 +124,6 @@ a:hover {
   list-style: circle;
   margin: 10px 0;
   font-weight: 400;
-}
-
-#navbar li:hover {
-  font-weight: bold;
 }
 
 section h1 {
